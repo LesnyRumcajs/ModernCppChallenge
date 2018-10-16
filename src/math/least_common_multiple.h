@@ -1,7 +1,5 @@
 #pragma once
 
-#include <numeric>
-
 namespace cppchallenge::math {
     /**
      * Calculates the least common multiple of two numbers
