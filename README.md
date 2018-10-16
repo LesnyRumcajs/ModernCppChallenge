@@ -1,5 +1,4 @@
 # ModernCppChallenge
-![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg)
 
 My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 
