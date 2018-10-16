@@ -11,8 +11,16 @@ namespace {
         EXPECT_EQ(cppchallenge::math::greatest_common_divisor(13,99), 1);
     }
 
+    TEST(GreatestCommonDivisor, SecondArgumentIsPrime) {
+        EXPECT_EQ(cppchallenge::math::greatest_common_divisor(99,13), 1);
+    }
+
     TEST(GreatestCommonDivisor, FirstIsAMultipleOfSecond) {
         EXPECT_EQ(cppchallenge::math::greatest_common_divisor(11,99), 11);
+    }
+
+    TEST(GreatestCommonDivisor, SecondIsAMultipleOfFirst) {
+        EXPECT_EQ(cppchallenge::math::greatest_common_divisor(99,11), 11);
     }
 
     TEST(GreatestCommonDivisor, LargeValue) {
