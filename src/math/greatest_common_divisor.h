@@ -7,5 +7,5 @@ namespace cppchallenge::math {
      * @param second number
      * @return greatest common divisor
      */
-    unsigned greatest_common_divisor(unsigned first, unsigned second);
+    unsigned long greatest_common_divisor(unsigned long first, unsigned long second);
 }

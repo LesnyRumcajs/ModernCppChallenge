@@ -35,5 +35,5 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
     include_directories("${gtest_SOURCE_DIR}/include")
 endif()
 
-add_executable(ModernCppChallenge src/math/sum_of_naturals.cpp src/math/sum_of_naturals.h tst/math/sum_of_naturals_test.cpp src/math/greatest_common_divisor.cpp src/math/greatest_common_divisor.h tst/math/greatest_common_divisor_test.cpp)
+add_executable(ModernCppChallenge src/math/sum_of_naturals.cpp src/math/sum_of_naturals.h tst/math/sum_of_naturals_test.cpp src/math/greatest_common_divisor.cpp src/math/greatest_common_divisor.h tst/math/greatest_common_divisor_test.cpp src/math/least_common_multiple.cpp src/math/least_common_multiple.h tst/math/least_common_multiple.cpp)
 target_link_libraries(ModernCppChallenge gtest_main)
