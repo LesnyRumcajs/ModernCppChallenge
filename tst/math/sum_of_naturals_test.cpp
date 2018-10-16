@@ -7,10 +7,10 @@ namespace {
     }
 
     TEST(SumOfNaturalsTest, NoDivisables) {
-        EXPECT_EQ(cppchallenge::math::sum_of_naturals_divisable(9), 0);
+        EXPECT_EQ(cppchallenge::math::sum_of_naturals_divisable(2), 0);
     }
 
     TEST(SumOfNaturalsTest, Divisables) {
-        EXPECT_EQ(cppchallenge::math::sum_of_naturals_divisable(30), 45);
+        EXPECT_EQ(cppchallenge::math::sum_of_naturals_divisable(30), 225);
     }
 }
