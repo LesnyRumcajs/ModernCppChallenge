@@ -6,7 +6,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Sum of naturals divisible by 3 and 5
 - [x] Greates common divisor
 - [x] Least common multpile
-- [ ] Largest prime smaller than given number
+- [x] Largest prime smaller than given number
 - [ ] Sexy prime pairs
 - [ ] Abundant numbers
 - [ ] Amicalbe numbers
