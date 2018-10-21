@@ -10,7 +10,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Sexy prime pairs
 - [x] Abundant numbers
 - [x] Amicable numbers
-- [ ] Armstrong numbers
+- [x] Armstrong numbers
 - [ ] Prime factors of a number
 - [ ] Gray code
 - [ ] Converting numerical values to Roman
