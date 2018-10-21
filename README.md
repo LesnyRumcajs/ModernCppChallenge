@@ -8,7 +8,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Least common multpile
 - [x] Largest prime smaller than given number
 - [x] Sexy prime pairs
-- [ ] Abundant numbers
+- [x] Abundant numbers
 - [ ] Amicalbe numbers
 - [ ] Armstrong numbers
 - [ ] Prime factors of a number
