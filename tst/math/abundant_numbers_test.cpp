@@ -26,9 +26,9 @@ namespace {
     }
 
     TEST(CalculateAbundanceTest, GivenPositiveNumbersShouldCorrectlyCalculateAbundance) {
-        EXPECT_EQ(cppchallenge::math::calculate_abundance(1), 1);
-        EXPECT_EQ(cppchallenge::math::calculate_abundance(6), 6);
-        EXPECT_EQ(cppchallenge::math::calculate_abundance(12), 16);
+        EXPECT_EQ(cppchallenge::math::calculate_abundance(1), 0);
+        EXPECT_EQ(cppchallenge::math::calculate_abundance(6), 0);
+        EXPECT_EQ(cppchallenge::math::calculate_abundance(12), 4);
     }
 
     TEST(GetAbundantNumbersTest, GivenZeroLimitShouldReturnEmptyVector) {
@@ -41,19 +41,19 @@ namespace {
     }
 
     TEST(GetAbundantNumbersTest, GivenLimitTwelveShouldReturnTwelveWithAbundance) {
-        ASSERT_THAT(cppchallenge::math::get_abundant_numbers(12), ElementsAre(Pair(12, 16)));
+        ASSERT_THAT(cppchallenge::math::get_abundant_numbers(12), ElementsAre(Pair(12, 4)));
     }
 
     TEST(GetAbundantNumbersTest, GivenPositiveLimitAboveTwelveShouldReturnAbundantNumbers) {
         ASSERT_THAT(cppchallenge::math::get_abundant_numbers(19), ElementsAre(
-                Pair(12, 16),
-                Pair(18, 21)
+                Pair(12, 4),
+                Pair(18, 3)
         ));
         ASSERT_THAT(cppchallenge::math::get_abundant_numbers(24), ElementsAre(
-                Pair(12, 16),
-                Pair(18, 21),
-                Pair(20, 22),
-                Pair(24, 36)
+                Pair(12, 4),
+                Pair(18, 3),
+                Pair(20, 2),
+                Pair(24, 12)
         ));
     }
 }

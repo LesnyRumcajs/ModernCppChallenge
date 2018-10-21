@@ -9,7 +9,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Largest prime smaller than given number
 - [x] Sexy prime pairs
 - [x] Abundant numbers
-- [ ] Amicalbe numbers
+- [ ] Amicable numbers
 - [ ] Armstrong numbers
 - [ ] Prime factors of a number
 - [ ] Gray code

@@ -14,7 +14,7 @@ namespace cppchallenge::math {
     abundant_numbers get_abundant_numbers(unsigned limit);
 
     /**
-     * Calculates abundance of a given number i.e. sum of its proper divisors
+     * Calculates abundance of a given number i.e. sum of its proper divisors minus the number if positive, zero otherwise
      * @param number
      * @return
      */

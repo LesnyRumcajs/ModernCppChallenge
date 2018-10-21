@@ -6,7 +6,10 @@
 
 unsigned cppchallenge::math::calculate_abundance(unsigned number) {
     auto divisors = cppchallenge::math::get_proper_divisors(number);
-    return std::accumulate(divisors.begin(), divisors.end(), 0u);
+    auto sum = std::accumulate(divisors.begin(), divisors.end(), 0u);
+    if (sum > number)
+        return sum - number;
+    return 0;
 }
 
 std::vector<unsigned> cppchallenge::math::get_proper_divisors(unsigned number) {
@@ -28,7 +31,7 @@ cppchallenge::math::abundant_numbers cppchallenge::math::get_abundant_numbers(un
     static const auto FIRST_ABUNDANT_NUMBER = 12u;
     for (int num = FIRST_ABUNDANT_NUMBER; num <= limit; ++num) {
         auto abundance = calculate_abundance(num);
-        if (abundance > num) {
+        if (abundance > 0) {
             result.push_back(std::make_pair(num, abundance));
         }
     }
