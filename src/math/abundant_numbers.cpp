@@ -15,11 +15,14 @@ unsigned cppchallenge::math::calculate_abundance(unsigned number) {
 std::vector<unsigned> cppchallenge::math::get_proper_divisors(unsigned number) {
     std::vector<unsigned> result;
 
-    for (auto divisor = static_cast<unsigned>(std::ceil(number / 2.0));
+    for (auto divisor = static_cast<unsigned>(std::sqrt(number));
          divisor > 0;
          --divisor) {
         if (number % divisor == 0) {
             result.push_back(divisor);
+            auto other_divisor = number / divisor;
+            if (other_divisor != divisor && other_divisor != number)
+                result.push_back(other_divisor);
         }
     }
 
