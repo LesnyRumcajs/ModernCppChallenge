@@ -32,7 +32,7 @@ std::vector<unsigned> cppchallenge::math::get_proper_divisors(unsigned number) {
 cppchallenge::math::abundant_numbers cppchallenge::math::get_abundant_numbers(unsigned limit) {
     abundant_numbers result;
     static const auto FIRST_ABUNDANT_NUMBER = 12u;
-    for (int num = FIRST_ABUNDANT_NUMBER; num <= limit; ++num) {
+    for (auto num = FIRST_ABUNDANT_NUMBER; num <= limit; ++num) {
         auto abundance = calculate_abundance(num);
         if (abundance > 0) {
             result.push_back(std::make_pair(num, abundance));

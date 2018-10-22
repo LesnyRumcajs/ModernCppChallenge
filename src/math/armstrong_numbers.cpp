@@ -39,5 +39,5 @@ unsigned cppchallenge::math::sum_of_digits(unsigned number) {
 unsigned cppchallenge::math::number_of_digits(unsigned number) {
     if (number <= 1) return 1;
 
-    return std::ceil(std::log10(number));
+    return static_cast<unsigned>(std::ceil(std::log10(number)));
 }

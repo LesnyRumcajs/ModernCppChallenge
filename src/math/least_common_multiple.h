@@ -7,5 +7,5 @@ namespace cppchallenge::math {
      * @param second number
      * @return
      */
-    long least_common_multiple(long first, long second);
+    unsigned long least_common_multiple(unsigned long first, unsigned long second);
 }
