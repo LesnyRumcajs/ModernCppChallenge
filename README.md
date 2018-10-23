@@ -11,7 +11,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Abundant numbers
 - [x] Amicable numbers
 - [x] Armstrong numbers
-- [ ] Prime factors of a number
+- [x] Prime factors of a number
 - [ ] Gray code
 - [ ] Converting numerical values to Roman
 - [ ] Largest Collatz sequence
