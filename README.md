@@ -12,7 +12,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Amicable numbers
 - [x] Armstrong numbers
 - [x] Prime factors of a number
-- [ ] Gray code
+- [x] Gray code
 - [ ] Converting numerical values to Roman
 - [ ] Largest Collatz sequence
 - [ ] Computing the value of Pi
