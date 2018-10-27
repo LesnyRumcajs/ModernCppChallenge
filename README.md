@@ -14,6 +14,6 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Prime factors of a number
 - [x] Gray code
 - [x] Converting numerical values to Roman
-- [ ] Largest Collatz sequence
+- [x] Largest Collatz sequence
 - [ ] Computing the value of Pi
 - [ ] Validating ISBNs
