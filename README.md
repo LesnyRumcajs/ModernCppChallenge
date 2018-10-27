@@ -16,4 +16,4 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Converting numerical values to Roman
 - [x] Largest Collatz sequence
 - [x] Computing the value of Pi
-- [ ] Validating ISBNs
+- [x] Validating ISBNs
