@@ -17,3 +17,14 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Largest Collatz sequence
 - [x] Computing the value of Pi
 - [x] Validating ISBNs
+
+**Language features**
+- [ ] IPv4 data type
+- [ ] Enumerating IPv4 addresses in a range
+- [ ] Creating a 2D array with basic operations
+- [ ] Minimum function with any number of arguments
+- [ ] Adding a range of values to a container
+- [ ] Container any, all, none
+- [ ] System handle wrapper
+- [ ] Literals of various temperature scales
+
