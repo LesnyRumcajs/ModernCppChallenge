@@ -50,7 +50,7 @@ install:
 ############################################################################
 # Install a recent CMake (unless already installed on OS X)
 ############################################################################
-- CMAKE_VERSION=3.7.2
+- CMAKE_VERSION=3.11.2
 - |
   CMAKE_URL="https://cmake.org/files/v${CMAKE_VERSION%.[0-9]}/cmake-${CMAKE_VERSION}-Linux-x86_64.tar.gz"
   mkdir cmake && travis_retry wget --no-check-certificate -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
