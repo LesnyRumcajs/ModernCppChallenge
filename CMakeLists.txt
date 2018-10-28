@@ -56,8 +56,11 @@ target_link_libraries(ModernCppChallengeLang gtest_main gmock_main)
 
 if (COVERAGE)
     target_compile_options(ModernCppChallengeMath PRIVATE --coverage)
-    target_link_libraries(ModernCppChallengeMath PRIVATE --coverage)
+    target_link_libraries(ModernCppChallengeMath gtest_main gmock_main PRIVATE --coverage)
 
     target_compile_options(ModernCppChallengeLang PRIVATE --coverage)
-    target_link_libraries(ModernCppChallengeLang PRIVATE --coverage)
+    target_link_libraries(ModernCppChallengeLang gtest_main gmock_main PRIVATE --coverage)
+else ()
+    target_link_libraries(ModernCppChallengeMath gtest_main gmock_main)
+    target_link_libraries(ModernCppChallengeLang gtest_main gmock_main)
 endif ()
