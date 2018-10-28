@@ -3,7 +3,23 @@
 
 #include <boost/algorithm/string.hpp>
 
-cppchallenge::lang::IPv4::IPv4() {
+cppchallenge::lang::IPv4::IPv4() :
+        ip{0, 0, 0, 0} {
+}
+
+cppchallenge::lang::IPv4::IPv4(std::string ip) {
+    from_string(std::move(ip));
+}
+
+cppchallenge::lang::IPv4::IPv4(uint8_t o1, uint8_t o2, uint8_t o3, uint8_t o4) :
+        ip{o1, o2, o3, o4} {
+}
+
+cppchallenge::lang::IPv4::IPv4(uint32_t ip_num) :
+        ip{static_cast<uint8_t>(ip_num >> 24),
+           static_cast<uint8_t>(ip_num >> 16),
+           static_cast<uint8_t>(ip_num >> 8),
+           static_cast<uint8_t>(ip_num )} {
 
 }
 
@@ -39,6 +55,22 @@ cppchallenge::lang::IPv4 &cppchallenge::lang::IPv4::from_string(std::string inpu
     return *this;
 }
 
+uint32_t cppchallenge::lang::IPv4::to_num() const {
+    return (ip[0] << 24 |
+            ip[1] << 16 |
+            ip[2] << 8 |
+            ip[3]);
+}
+
+bool cppchallenge::lang::operator<(const cppchallenge::lang::IPv4 &lhs, const cppchallenge::lang::IPv4 &rhs) noexcept {
+    return lhs.to_num() < rhs.to_num();
+}
+
+cppchallenge::lang::IPv4 &cppchallenge::lang::IPv4::operator++() {
+    *this = IPv4(to_num() + 1);
+    return *this;
+}
+
 std::istream &cppchallenge::lang::operator>>(std::istream &is, cppchallenge::lang::IPv4 &ipv4) {
     std::string input;
     is >> input;
@@ -48,4 +80,18 @@ std::istream &cppchallenge::lang::operator>>(std::istream &is, cppchallenge::lan
 
 std::ostream &cppchallenge::lang::operator<<(std::ostream &os, const cppchallenge::lang::IPv4 &ipv4) {
     return os << ipv4.to_string();
+}
+
+std::vector<cppchallenge::lang::IPv4>
+cppchallenge::lang::create_ipv4_range(const cppchallenge::lang::IPv4 &first, const cppchallenge::lang::IPv4 last) {
+    std::vector<IPv4> result;
+    if (last < first) {
+        throw std::invalid_argument("Invalid range provided - last element smaller than first!");
+    }
+
+    for (auto ip = first; ip <= last; ++ip) {
+        result.push_back(ip);
+    }
+
+    return result;
 }
