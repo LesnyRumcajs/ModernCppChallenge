@@ -1,6 +1,5 @@
 # ModernCppChallenge
 [![Build Status](https://travis-ci.com/LesnyRumcajs/ModernCppChallenge.svg?branch=master)](https://travis-ci.com/LesnyRumcajs/ModernCppChallenge)
-[![Coverage Status](https://coveralls.io/repos/github/LesnyRumcajs/ModernCppChallenge/badge.svg?branch=master)](https://coveralls.io/github/LesnyRumcajs/ModernCppChallenge?branch=master)
 
 My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 
