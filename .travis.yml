@@ -1,5 +1,5 @@
 language: cpp
-
+compiler: clang
 matrix:
   include:
   # works on Trusty
@@ -15,3 +15,11 @@ matrix:
 
 before_install:
 - eval "${MATRIX_EVAL}"
+
+before_script:
+  - mkdir build
+  - cd build
+  - cmake ..
+
+script:
+  - make
