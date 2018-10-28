@@ -46,7 +46,7 @@ install:
 - JOBS=2
 
 ############################################################################
-# Install a recent CMake (unless already installed on OS X)
+# Install a recent CMake
 ############################################################################
 - CMAKE_VERSION=3.11.2
 - |
