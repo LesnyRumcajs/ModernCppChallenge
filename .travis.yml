@@ -1,28 +1,72 @@
 language: cpp
 compiler: clang
+
+notifications:
+  email: false
+
+os: linux
+dist: trusty
+
+cache:
+  directories:
+  - ${TRAVIS_BUILD_DIR}/deps
+
 matrix:
   include:
-  # works on Trusty
-  - os: linux
-    addons:
-      apt:
-        sources:
-        - llvm-toolchain-trusty-5.0
-        packages:
-        - clang-5.0
-    env:
-    - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
+  # Clang 6.0
+  - env: COMPILER=clang++-6.0 BUILD_TYPE=Debug GSL_CXX_STANDARD=14
+      addons: &clang60
+        apt:
+          packages:
+          - clang-6.0
+          #          - g++-7
+          sources:
+          - ubuntu-toolchain-r-test
+          - llvm-toolchain-trusty-6.0
+          - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-6.0 main'
+            key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
 
-before_install:
-- eval "${MATRIX_EVAL}"
+      - env: COMPILER=clang++-6.0 BUILD_TYPE=Release GSL_CXX_STANDARD=14
+        addons: *clang60
+
+      # Clang 6.0 c++17
+      - env: COMPILER=clang++-6.0 BUILD_TYPE=Debug GSL_CXX_STANDARD=17
+        addons: *clang60
+
+      - env: COMPILER=clang++-6.0 BUILD_TYPE=Release GSL_CXX_STANDARD=17
+        addons: *clang60
+
 
 install:
-- sudo apt install libboost-dev
+# Set the ${CXX} variable properly
+- export CXX=${COMPILER}
+- ${CXX} --version
+
+# Dependencies required by the CI are installed in ${TRAVIS_BUILD_DIR}/deps/
+- DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
+- mkdir -p "${DEPS_DIR}"
+- cd "${DEPS_DIR}"
+
+# Travis machines have 2 cores
+- JOBS=2
+
+############################################################################
+# Install a recent CMake (unless already installed on OS X)
+############################################################################
+- CMAKE_VERSION=3.7.2
+- |
+  CMAKE_URL="https://cmake.org/files/v${CMAKE_VERSION%.[0-9]}/cmake-${CMAKE_VERSION}-Linux-x86_64.tar.gz"
+  mkdir cmake && travis_retry wget --no-check-certificate -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
+  export PATH=${DEPS_DIR}/cmake/bin:${PATH}
+- cmake --version
 
 before_script:
-  - mkdir build
-  - cd build
-  - cmake ..
+# have CMake to generate build files
+- cd "${TRAVIS_BUILD_DIR}"
+- mkdir build && cd build
+- cmake ..
 
 script:
-  - make
+- cmake --build . -- -j${JOBS}
+- ./ModernCppChallengeMath
+- ./ModernCppChallengeLang
