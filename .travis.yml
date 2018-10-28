@@ -16,6 +16,9 @@ matrix:
 before_install:
 - eval "${MATRIX_EVAL}"
 
+install:
+- sudo apt install libboost-dev
+
 before_script:
   - mkdir build
   - cd build
