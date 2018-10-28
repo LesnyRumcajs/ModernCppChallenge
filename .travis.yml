@@ -26,14 +26,12 @@ matrix:
         - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-6.0 main'
           key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
 
-  - env: COMPILER=clang++-6.0 BUILD_TYPE=Release GSL_CXX_STANDARD=14
-    addons: *clang60
-
   # Clang 6.0 c++17
-  - env: COMPILER=clang++-6.0 BUILD_TYPE=Debug GSL_CXX_STANDARD=17
+  - env: COMPILER=clang++-6.0 BUILD_TYPE=Debug
     addons: *clang60
 
-  - env: COMPILER=clang++-6.0 B
+  - env: COMPILER=clang++-6.0 BUILD_TYPE=Release
+    addons: *clang60
 
 
 install:
