@@ -19,7 +19,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Validating ISBNs
 
 **Language features**
-- [ ] IPv4 data type
+- [x] IPv4 data type
 - [ ] Enumerating IPv4 addresses in a range
 - [ ] Creating a 2D array with basic operations
 - [ ] Minimum function with any number of arguments
