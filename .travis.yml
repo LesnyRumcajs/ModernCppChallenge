@@ -31,6 +31,7 @@ matrix:
 
 before_install:
 - sudo apt install libboost-dev
+- pip install --user cpp-coveralls
 
 install:
 # Set the ${CXX} variable properly
@@ -59,9 +60,12 @@ before_script:
 # have CMake to generate build files
 - cd "${TRAVIS_BUILD_DIR}"
 - mkdir build && cd build
-- cmake ..
+- cmake .. -DCOVERAGE=1
 
 script:
 - cmake --build . -- -j${JOBS}
 - ./ModernCppChallengeMath
 - ./ModernCppChallengeLang
+
+after_success:
+- coveralls --root . -E ".*gtest.*" -E ".*CMakeFiles.*"
