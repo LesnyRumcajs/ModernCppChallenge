@@ -1,5 +1,5 @@
 language: cpp
-compiler: clang
+compiler: g++
 
 notifications:
   email: false
@@ -14,11 +14,11 @@ cache:
 matrix:
   include:
   # Clang 6.0
-  - env: COMPILER=clang++-6.0 BUILD_TYPE=Debug
+  - env: COMPILER=g++-7 BUILD_TYPE=Debug
     addons: &clang60
       apt:
         packages:
-        - clang-6.0
+        #        - clang-6.0
         - g++-7
         sources:
         - ubuntu-toolchain-r-test
