@@ -26,12 +26,14 @@ matrix:
         - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-6.0 main'
           key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
 
-  - env: COMPILER=clang++-6.0 BUILD_TYPE=Release
-    addons: *clang60
+#  - env: COMPILER=clang++-6.0 BUILD_TYPE=Release
+#    addons: *clang60
 
 before_install:
+- sudo apt-get update -qq
+- sudo pip install codecov
 - sudo apt install libboost-dev
-- pip install --user cpp-coveralls
+- sudo apt-get install -y -qq lcov curl
 
 install:
 # Set the ${CXX} variable properly
@@ -54,18 +56,24 @@ install:
   CMAKE_URL="https://cmake.org/files/v${CMAKE_VERSION%.[0-9]}/cmake-${CMAKE_VERSION}-Linux-x86_64.tar.gz"
   mkdir cmake && travis_retry wget --no-check-certificate -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
   export PATH=${DEPS_DIR}/cmake/bin:${PATH}
-- CMakeModules --version
+- cmake --version
 
 before_script:
-# have CMake to generate build files
 - cd "${TRAVIS_BUILD_DIR}"
 - mkdir build && cd build
-- CMakeModules .. -DCOVERAGE=1
+- cmake ..
 
 script:
-- CMakeModules --build . -- -j${JOBS}
+- cmake --build . -- -j${JOBS}
+- ctest
 - ./ModernCppChallengeMath
 - ./ModernCppChallengeLang
 
 after_success:
-- coveralls --root .. -E ".*google.*" -E ".*CMakeFiles.*"
+# Creating report
+- cd ${TRAVIS_BUILD_DIR}
+- lcov --directory . --capture --output-file coverage.info # capture coverage info
+- lcov --remove coverage.info '/usr/*' --output-file coverage.info # filter out system
+- lcov --list coverage.info #debug info
+# Uploading report to CodeCov
+- bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
