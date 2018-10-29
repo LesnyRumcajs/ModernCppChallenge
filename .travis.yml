@@ -54,16 +54,16 @@ install:
   CMAKE_URL="https://cmake.org/files/v${CMAKE_VERSION%.[0-9]}/cmake-${CMAKE_VERSION}-Linux-x86_64.tar.gz"
   mkdir cmake && travis_retry wget --no-check-certificate -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
   export PATH=${DEPS_DIR}/cmake/bin:${PATH}
-- cmake --version
+- CMakeModules --version
 
 before_script:
 # have CMake to generate build files
 - cd "${TRAVIS_BUILD_DIR}"
 - mkdir build && cd build
-- cmake .. -DCOVERAGE=1
+- CMakeModules .. -DCOVERAGE=1
 
 script:
-- cmake --build . -- -j${JOBS}
+- CMakeModules --build . -- -j${JOBS}
 - ./ModernCppChallengeMath
 - ./ModernCppChallengeLang
 
