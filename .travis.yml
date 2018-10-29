@@ -60,7 +60,7 @@ before_script:
 
 script:
 - cmake --build . -- -j${JOBS}
-- ctest && ./ModernCppChallengeMath && ./ModernCppChallengeLang
+- ctest --verbose
 
 after_success:
 # Creating report
