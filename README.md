@@ -1,7 +1,5 @@
 # ModernCppChallenge
 [![Build Status](https://travis-ci.com/LesnyRumcajs/ModernCppChallenge.svg?branch=master)](https://travis-ci.com/LesnyRumcajs/ModernCppChallenge)
-
-
 [![codecov](https://codecov.io/gh/LesnyRumcajs/ModernCppChallenge/branch/master/graph/badge.svg)](https://codecov.io/gh/LesnyRumcajs/ModernCppChallenge)
 
 
