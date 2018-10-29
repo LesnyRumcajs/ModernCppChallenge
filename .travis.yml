@@ -13,12 +13,10 @@ cache:
 
 matrix:
   include:
-  # Clang 6.0
   - env: COMPILER=g++-7 BUILD_TYPE=Debug
-    addons: &clang60
+    addons:
       apt:
         packages:
-        #        - clang-6.0
         - g++-7
         sources:
         - ubuntu-toolchain-r-test
@@ -26,14 +24,11 @@ matrix:
         - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-6.0 main'
           key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
 
-#  - env: COMPILER=clang++-6.0 BUILD_TYPE=Release
-#    addons: *clang60
-
 before_install:
-- sudo apt-get update -qq
+- sudo apt update -qq
+- sudo apt install -y -qq libboost-dev lcov curl
 - sudo pip install codecov
-- sudo apt install libboost-dev
-- sudo apt-get install -y -qq lcov curl
+
 
 install:
 # Set the ${CXX} variable properly
@@ -61,13 +56,11 @@ install:
 before_script:
 - cd "${TRAVIS_BUILD_DIR}"
 - mkdir build && cd build
-- cmake ..
+- cmake -DCOVERAGE=ON -DCMAKE_BUILD_TYPE="Debug" ..
 
 script:
 - cmake --build . -- -j${JOBS}
-- ctest
-- ./ModernCppChallengeMath
-- ./ModernCppChallengeLang
+- ctest && ./ModernCppChallengeMath && ./ModernCppChallengeLang
 
 after_success:
 # Creating report
