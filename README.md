@@ -27,7 +27,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Creating a 2D array with basic operations
 - [x] Minimum function with any number of arguments
 - [x] Adding a range of values to a container
-- [ ] Container any, all, none
+- [x] Container any, all, none
 - [ ] System handle wrapper
 - [ ] Literals of various temperature scales
 
