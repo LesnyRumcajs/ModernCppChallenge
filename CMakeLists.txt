@@ -104,6 +104,6 @@ add_executable(ModernCppChallengeLang
         src/lang/BasicArray.h
         tst/lang/BasicArray_test.cpp
         src/lang/container_minimum.h
-        tst/lang/container_minimum_test.cpp)
+        tst/lang/container_minimum_test.cpp src/lang/value_adder.h tst/lang/value_adder_test.cpp)
 target_link_libraries(ModernCppChallengeLang gtest_main gmock_main)
 add_test(NAME LangTest COMMAND ModernCppChallengeLang)

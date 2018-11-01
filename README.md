@@ -26,7 +26,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Enumerating IPv4 addresses in a range
 - [x] Creating a 2D array with basic operations
 - [x] Minimum function with any number of arguments
-- [ ] Adding a range of values to a container
+- [x] Adding a range of values to a container
 - [ ] Container any, all, none
 - [ ] System handle wrapper
 - [ ] Literals of various temperature scales
