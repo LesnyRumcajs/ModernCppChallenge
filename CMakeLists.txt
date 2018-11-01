@@ -102,6 +102,8 @@ add_executable(ModernCppChallengeLang
         src/lang/IPv4.h
         tst/lang/IPv4_test.cpp
         src/lang/BasicArray.h
-        tst/lang/BasicArray_test.cpp src/lang/container_minimum.h tst/lang/container_minimum_test.cpp)
+        tst/lang/BasicArray_test.cpp
+        src/lang/container_minimum.h
+        tst/lang/container_minimum_test.cpp)
 target_link_libraries(ModernCppChallengeLang gtest_main gmock_main)
 add_test(NAME LangTest COMMAND ModernCppChallengeLang)

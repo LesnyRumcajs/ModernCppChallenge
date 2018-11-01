@@ -25,7 +25,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] IPv4 data type
 - [x] Enumerating IPv4 addresses in a range
 - [x] Creating a 2D array with basic operations
-- [ ] Minimum function with any number of arguments
+- [x] Minimum function with any number of arguments
 - [ ] Adding a range of values to a container
 - [ ] Container any, all, none
 - [ ] System handle wrapper

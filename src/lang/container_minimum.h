@@ -1,6 +1,7 @@
 #pragma once
 
 #include <type_traits>
+#include <functional>
 
 namespace cppchallenge::lang {
     /**
@@ -26,9 +27,40 @@ namespace cppchallenge::lang {
      * @param args
      * @return minimum
      */
-    template<typename First, typename... Args, typename = std::enable_if<are_same<First, Args...>::value, void>>
+    template<typename First, typename... Args, typename = std::enable_if_t<are_same<First, Args...>::value>>
     First min(First first, Args... args) {
-        if (0 == sizeof...(args)) return first;
         return min(first, min(args...));
+    }
+
+    /**
+     * Gets minimum with a custom comparator (two arguments)
+     * @tparam Comparator
+     * @tparam T
+     * @param comp comparator
+     * @param first
+     * @param second
+     * @return
+     */
+    template<typename Comparator, typename T>
+    T min(Comparator comp, T first, T second) {
+        return comp(first, second) ? first : second;
+    }
+
+    /**
+     * Gets minimim with a custom comparator (variable number of arguments)
+     * @tparam Comparator
+     * @tparam First
+     * @tparam Args
+     * @param comp comparator
+     * @param first
+     * @param args
+     * @return
+     */
+    template<typename Comparator, typename First, typename... Args,
+            typename = std::enable_if_t<are_same<First, Args...>::value>,
+            typename = typename std::enable_if<std::is_convertible<Comparator,
+                    std::function<bool(First, First)>>::value>::type>
+    First min(Comparator comp, First first, Args... args) {
+        return min(comp, first, min(comp, args...));
     }
 }
