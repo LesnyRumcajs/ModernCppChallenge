@@ -1,5 +1,4 @@
 language: cpp
-compiler: g++
 
 notifications:
   email: false
@@ -27,6 +26,7 @@ matrix:
       apt:
         packages:
         - clang++-6.0
+        - g++-7
         sources:
         - ubuntu-toolchain-r-test
         - llvm-toolchain-trusty-6.0
