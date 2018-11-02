@@ -13,11 +13,20 @@ cache:
 
 matrix:
   include:
-  - env: COMPILER=g++-7 BUILD_TYPE=Debug
+  - env: COMPILER=g++-7 BUILD_TYPE=Debug COVERAGE=1
+    compiler: g++
     addons:
       apt:
         packages:
         - g++-7
+        sources:
+        - ubuntu-toolchain-r-test
+  - env: COMPILER=clang BUILD_TYPE=Release
+    compiler: clang
+    addons:
+      apt:
+        packages:
+        - clang-6.0
         sources:
         - ubuntu-toolchain-r-test
         - llvm-toolchain-trusty-6.0
@@ -56,17 +65,19 @@ install:
 before_script:
 - cd "${TRAVIS_BUILD_DIR}"
 - mkdir build && cd build
-- cmake -DCOVERAGE=ON -DCMAKE_BUILD_TYPE="Debug" ..
+- cmake -DCOVERAGE=${COVERAGE} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ..
 
 script:
 - cmake --build . -- -j${JOBS}
 - ctest --verbose
 
 after_success:
-# Creating report
-- cd ${TRAVIS_BUILD_DIR}
-- lcov --directory . --capture --output-file coverage.info # capture coverage info
-- lcov --remove coverage.info '/usr/*' --output-file coverage.info # filter out system
-- lcov --list coverage.info #debug info
-# Uploading report to CodeCov
-- bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
+# Creating report and uploading it to codecov
+- |
+  if [[ "${COVERAGE}" == "1" ]]; then
+    cd ${TRAVIS_BUILD_DIR}
+    lcov --directory . --capture --output-file coverage.info # capture coverage info
+    lcov --remove coverage.info '/usr/*' --output-file coverage.info # filter out system
+    lcov --list coverage.info #debug info
+    bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
+  fi
