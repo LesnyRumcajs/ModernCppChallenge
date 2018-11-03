@@ -10,16 +10,23 @@ cache:
   directories:
   - ${TRAVIS_BUILD_DIR}/deps
 
+common_sources: &all_sources
+- ubuntu-toolchain-r-test
+
+clang_sources: &llvm_sources
+- llvm-toolchain-trusty-6.0
+- sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-6.0 main'
+- key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
+
 matrix:
   include:
   - env: COMPILER=g++-7 BUILD_TYPE=Debug COVERAGE=1
-    compiler: g++
+    compiler: gcc
     addons:
       apt:
         packages:
         - g++-7
-        sources:
-        - ubuntu-toolchain-r-test
+        sources: [*all_sources]
   - env: COMPILER=clang++-6.0 BUILD_TYPE=Release
     compiler: clang
     addons:
@@ -27,20 +34,14 @@ matrix:
         packages:
         - clang++-6.0
         - g++-7
-        sources:
-        - ubuntu-toolchain-r-test
-        - llvm-toolchain-trusty-6.0
-        - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-6.0 main'
-          key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
+        sources: [*all_sources, *llvm_sources]
 
 before_install:
 - sudo apt update -qq
 - sudo apt install -y -qq libboost-dev lcov curl
 - sudo pip install codecov
 
-
 install:
-# Set the ${CXX} variable properly
 - export CXX=${COMPILER}
 - ${CXX} --version
 
@@ -52,10 +53,8 @@ install:
 # Travis machines have 2 cores
 - JOBS=2
 
-############################################################################
 # Install a recent CMake
-############################################################################
-- CMAKE_VERSION=3.11.2
+- CMAKE_VERSION=3.12.4
 - |
   CMAKE_URL="https://cmake.org/files/v${CMAKE_VERSION%.[0-9]}/cmake-${CMAKE_VERSION}-Linux-x86_64.tar.gz"
   mkdir cmake && travis_retry wget --no-check-certificate -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
@@ -72,7 +71,7 @@ script:
 - ctest --verbose
 
 after_success:
-# Creating report and uploading it to codecov
+# Create report and upload it to codecov
 - |
   if [[ "${COVERAGE}" == "1" ]]; then
     cd ${TRAVIS_BUILD_DIR}
