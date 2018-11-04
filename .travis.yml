@@ -68,7 +68,7 @@ before_script:
 script:
 - cmake --build . -- -j${JOBS}
 - |
-  if [[ "${COVERAGE}" == "1" ]]; then
+  if [[ "${VALGRIND}" == "1" ]]; then
     ctest --verbose -T memcheck
   else
     ctest --verbose
