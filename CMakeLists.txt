@@ -4,6 +4,13 @@ project(ModernCppChallenge)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMakeModules)
 
+if (VALGRIND)
+    find_program(MEMORYCHECK_COMMAND valgrind)
+    set(MEMORYCHECK_COMMAND_OPTIONS "--trace-children=yes --leak-check=full --error-exitcode=42")
+    include(CTest)
+    enable_testing()
+endif ()
+
 # Download and unpack googletest at configure time
 configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
 execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .

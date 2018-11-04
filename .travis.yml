@@ -20,12 +20,11 @@ clang_sources: &llvm_sources
 
 matrix:
   include:
-  - env: COMPILER=g++-7 BUILD_TYPE=Debug COVERAGE=1
+  - env: COMPILER=g++-7 BUILD_TYPE=Debug COVERAGE=1 VALGRIND=1
     compiler: gcc
     addons:
       apt:
-        packages:
-        - g++-7
+        packages: [g++-7, valgrind]
         sources: [*all_sources]
   - env: COMPILER=clang++-6.0 BUILD_TYPE=Release
     compiler: clang
@@ -68,7 +67,12 @@ before_script:
 
 script:
 - cmake --build . -- -j${JOBS}
-- ctest --verbose
+- |
+  if [[ "${COVERAGE}" == "1" ]]; then
+    ctest --verbose -T memcheck
+  else
+    ctest --verbose
+  fi
 
 after_success:
 # Create report and upload it to codecov
