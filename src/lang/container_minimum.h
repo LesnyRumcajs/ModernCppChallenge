@@ -29,7 +29,6 @@ namespace cppchallenge::lang {
      */
     template<typename First, typename... Args, typename = std::enable_if_t<are_same<First, Args...>::value>>
     First min(First first, Args... args) {
-        int *p = new int[20];
         return min(first, min(args...));
     }
 
