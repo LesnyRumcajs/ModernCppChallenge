@@ -26,7 +26,7 @@ matrix:
       apt:
         packages: [g++-7, valgrind]
         sources: [*all_sources]
-  - env: COMPILER=G++-7 BUILD_TYPE=Release
+  - env: COMPILER=g++-7 BUILD_TYPE=Release
     compiler: gcc
     addons:
       apt:
