@@ -26,13 +26,23 @@ matrix:
       apt:
         packages: [g++-7, valgrind]
         sources: [*all_sources]
+  - env: COMPILER=G++-7 BUILD_TYPE=Release
+    compiler: gcc
+    addons:
+      apt:
+        packages: [g++-7]
+        sources: [*all_sources]
+  - env: COMPILER=clang++-6.0 BUILD_TYPE=Debug VALGRIND=1
+    compiler: clang
+    addons:
+      apt:
+        packages: [clang++-6.0, g++-7, valgrind]
+        sources: [*all_sources, *llvm_sources]
   - env: COMPILER=clang++-6.0 BUILD_TYPE=Release
     compiler: clang
     addons:
       apt:
-        packages:
-        - clang++-6.0
-        - g++-7
+        packages: [clang++-6.0, g++-7]
         sources: [*all_sources, *llvm_sources]
 
 before_install:
