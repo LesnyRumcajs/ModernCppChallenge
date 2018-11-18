@@ -17,9 +17,9 @@ namespace cppchallenge::lang {
 
         explicit unique_handle(ptr value = Traits::invalid()) noexcept : _value(value) {};
 
-        unique_handle &operator=(unique_handle &&rhs) noexcept {
-            if (this != &rhs) {
-                reset(rhs.release());
+        unique_handle &operator=(unique_handle &&lhs) noexcept {
+            if (this != &lhs) {
+                reset(lhs.release());
             }
             return *this;
         }
