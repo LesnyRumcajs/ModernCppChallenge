@@ -119,10 +119,12 @@ namespace {
 
     TEST(UniqueHandleTest, ShouldCorrectlyReleaseOnDemand) {
         TestResourcePool::reset_pool();
-        TestResourceHandle handle(TestResourcePool::acquire_resource());
-        ASSERT_TRUE(TestResourcePool::is_handle_in_use(handle.get()));
-        ASSERT_EQ(TestResourcePool::handles_count(), 1);
-        handle.release();
+        {
+            TestResourceHandle handle(TestResourcePool::acquire_resource());
+            ASSERT_TRUE(TestResourcePool::is_handle_in_use(handle.get()));
+            ASSERT_EQ(TestResourcePool::handles_count(), 1);
+            handle.release();
+        }
         ASSERT_EQ(TestResourcePool::handles_count(), 1);
     }
 };
