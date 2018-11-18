@@ -15,6 +15,7 @@ namespace {
         }
 
         static void free_resource(int handle) {
+            if (handle == 0) return;
             if (!is_handle_in_use(handle)) {
                 throw std::invalid_argument("Resource not in use!");
             }
@@ -50,6 +51,7 @@ namespace {
             TestResourcePool::free_resource(value);
         }
     };
+    using TestResourceHandle = cppchallenge::lang::unique_handle<TestResourceTraits>;
 
     TEST(TestResourcePoolTest, AcquiringAndResettingNewHandlesShouldWorkCorrectly) {
         auto handle1 = TestResourcePool::acquire_resource();
@@ -71,14 +73,56 @@ namespace {
         ASSERT_THROW(TestResourcePool::free_resource(-1), std::invalid_argument);
     }
 
-    using invalid_handle = cppchallenge::lang::unique_handle<TestResourceTraits>;
     TEST(UniqueHandleTest, ShouldCorrectlyAcquireResourceAndFree) {
+        TestResourcePool::reset_pool();
         TestResourceTraits::ptr test_ptr;
         {
-            invalid_handle handle(TestResourcePool::acquire_resource());
+            TestResourceHandle handle(TestResourcePool::acquire_resource());
             test_ptr = handle.get();
             ASSERT_TRUE(TestResourcePool::is_handle_in_use(test_ptr));
         }
         ASSERT_FALSE(TestResourcePool::is_handle_in_use(test_ptr));
+    }
+
+    TEST(UniqueHandleTest, ShouldCorrectlyCompareHandles) {
+        TestResourcePool::reset_pool();
+        TestResourceHandle first_handle(TestResourcePool::acquire_resource());
+        TestResourceHandle second_handle(TestResourcePool::acquire_resource());
+
+        ASSERT_TRUE(first_handle != second_handle);
+
+        TestResourceHandle& ref_first = first_handle;
+        ASSERT_TRUE(first_handle == ref_first);
+    }
+
+    TEST(UniqueHandleTest, ShouldCorrectlySwapHandles) {
+        TestResourcePool::reset_pool();
+        TestResourceHandle first_handle(TestResourcePool::acquire_resource());
+        auto first_ptr = first_handle.get();
+
+        TestResourceHandle second_handle(TestResourcePool::acquire_resource());
+        auto second_ptr = second_handle.get();
+
+        swap(first_handle, second_handle);
+        ASSERT_TRUE(first_handle.get() == second_ptr);
+        ASSERT_TRUE(second_handle.get() == first_ptr);
+    }
+
+    TEST(UniqueHandleTest, ShouldCorrectlyResetOnDemand) {
+        TestResourcePool::reset_pool();
+        TestResourceHandle handle(TestResourcePool::acquire_resource());
+        ASSERT_TRUE(TestResourcePool::is_handle_in_use(handle.get()));
+        ASSERT_EQ(TestResourcePool::handles_count(), 1);
+        handle.reset();
+        ASSERT_EQ(TestResourcePool::handles_count(), 0);
+    }
+
+    TEST(UniqueHandleTest, ShouldCorrectlyReleaseOnDemand) {
+        TestResourcePool::reset_pool();
+        TestResourceHandle handle(TestResourcePool::acquire_resource());
+        ASSERT_TRUE(TestResourcePool::is_handle_in_use(handle.get()));
+        ASSERT_EQ(TestResourcePool::handles_count(), 1);
+        handle.release();
+        ASSERT_EQ(TestResourcePool::handles_count(), 1);
     }
 };

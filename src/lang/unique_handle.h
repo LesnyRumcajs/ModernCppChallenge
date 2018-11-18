@@ -4,6 +4,11 @@
 
 namespace cppchallenge::lang {
 
+    /**
+     * System call wrapper based on The Modern C++ Challenge implementation by Marius Bancila (which is based on implementation
+     * by Kenny Kerr and published in the "Windows With C++ - C++ and the Windows API" article).
+     * @tparam Traits
+     */
     template<typename Traits>
     class unique_handle {
     private:
@@ -70,5 +75,4 @@ namespace cppchallenge::lang {
     bool operator!=(const unique_handle<Traits> &lhs, const unique_handle<Traits> &rhs) noexcept {
         return lhs.get() != rhs.get();
     }
-
 }
