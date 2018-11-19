@@ -31,3 +31,13 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] System handle wrapper
 - [x] Literals of various temperature scales
 
+**Strings and regular expressions**
+- [ ] Binary to string conversion
+- [ ] String to binary conversion
+- [ ] Capitalizing an article title
+- [ ] Joining strings together separated by a delimiter
+- [ ] Splitting a string into tokens with a list of possible delimiters
+- [ ] Longest palindromit substring
+- [ ] License plate validation
+- [ ] Extracting URL parts
+- [ ] Transforming dates in strings
