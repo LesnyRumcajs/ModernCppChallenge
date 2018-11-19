@@ -29,5 +29,5 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Adding a range of values to a container
 - [x] Container any, all, none
 - [x] System handle wrapper
-- [ ] Literals of various temperature scales
+- [x] Literals of various temperature scales
 
