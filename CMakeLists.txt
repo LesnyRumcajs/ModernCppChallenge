@@ -117,6 +117,15 @@ add_executable(ModernCppChallengeLang
         src/lang/value_adder.h
         tst/lang/value_adder_test.cpp
         src/lang/contains_helpers.h
-        tst/lang/contains_helpers_test.cpp src/lang/unique_handle.h tst/lang/unique_handle_test.cpp src/lang/temperature_scales.h tst/lang/temperature_scales_test.cpp)
+        tst/lang/contains_helpers_test.cpp src/lang/unique_handle.h
+        tst/lang/unique_handle_test.cpp
+        src/lang/temperature_scales.h
+        tst/lang/temperature_scales_test.cpp)
 target_link_libraries(ModernCppChallengeLang gtest_main gmock_main)
 add_test(NAME LangTest COMMAND ModernCppChallengeLang)
+
+add_executable(ModernCppChallengeString
+        src/string/bin2str.h
+        tst/string/bin2str_test.cpp)
+target_link_libraries(ModernCppChallengeString gtest_main gmock_main)
+add_test(NAME StringTest COMMAND ModernCppChallengeString)
