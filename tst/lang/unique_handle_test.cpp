@@ -127,4 +127,4 @@ namespace {
         }
         ASSERT_EQ(TestResourcePool::handles_count(), 1);
     }
-};
+}
