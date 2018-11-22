@@ -22,7 +22,7 @@ cppchallenge::math::sexy_primes cppchallenge::math::get_sexy_primes(unsigned lim
 
 cppchallenge::math::primes cppchallenge::math::get_primes(unsigned limit) {
     std::vector<unsigned> result;
-    for (int prime_candidate = 2; prime_candidate <= limit; ++prime_candidate) {
+    for (auto prime_candidate{2u}; prime_candidate <= limit; ++prime_candidate) {
         if (cppchallenge::math::is_prime(prime_candidate)) {
             result.emplace_back(prime_candidate);
         }
