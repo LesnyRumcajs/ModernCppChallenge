@@ -34,7 +34,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 **Strings and regular expressions**
 - [x] Binary to string conversion
 - [x] String to binary conversion
-- [ ] Capitalizing an article title
+- [x] Capitalizing an article title
 - [ ] Joining strings together separated by a delimiter
 - [ ] Splitting a string into tokens with a list of possible delimiters
 - [ ] Longest palindromit substring
