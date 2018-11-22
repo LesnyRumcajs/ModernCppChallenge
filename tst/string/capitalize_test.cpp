@@ -1,9 +1,6 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
-#include <array>
-#include <list>
-
 #include "../../src/string/capitalize.h"
 
 namespace {
