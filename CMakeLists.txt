@@ -12,11 +12,12 @@ if ($ENV{VALGRIND})
     enable_testing()
 endif ()
 
-# treat warnings as errors
+# treat all / extra / pedantic warnings as errors
 IF(CMAKE_COMPILER_IS_GNUCXX)
-    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
-    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wpedantic")
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
     SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wextra")
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wpedantic")
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
 ENDIF(CMAKE_COMPILER_IS_GNUCXX)
 
 # Download and unpack googletest at configure time
@@ -135,6 +136,6 @@ add_executable(ModernCppChallengeString
         src/string/bin2str.h
         tst/string/bin2str_test.cpp
         src/string/str2bin.h
-        tst/string/str2bin_test.cpp src/string/capitalize.h tst/string/capitalize_test.cpp)
+        tst/string/str2bin_test.cpp src/string/capitalize.h tst/string/capitalize_test.cpp src/string/join.h tst/string/join_test.cpp)
 target_link_libraries(ModernCppChallengeString gtest_main gmock_main)
 add_test(NAME StringTest COMMAND ModernCppChallengeString)
