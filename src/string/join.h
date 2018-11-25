@@ -40,7 +40,8 @@ namespace cppchallenge::string {
     }
 
     /**
-     * Joins elements of a container (without random access iterator e.g. std::list) with a given separator
+     * Joins elements of a container (without random access iterator e.g. std::list) with a given separator.
+     * This implementations also works for Random Access Iterator container, just for SFINAE sport.
      * @tparam Container
      * @param container
      * @param separator
@@ -53,10 +54,8 @@ namespace cppchallenge::string {
 
         std::ostringstream oss;
 
-        oss << container.front();
-        std::for_each(std::next(container.begin()), container.end(), [&oss, &separator](const auto& el) {
-            oss << separator << el;
-        });
+        std::copy(container.begin(), std::prev(container.end()), std::ostream_iterator<std::string>(oss, separator));
+        oss << *(std::prev(container.end()));
 
         return oss.str();
     }
