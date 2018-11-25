@@ -35,7 +35,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Binary to string conversion
 - [x] String to binary conversion
 - [x] Capitalizing an article title
-- [ ] Joining strings together separated by a delimiter
+- [x] Joining strings together separated by a delimiter
 - [ ] Splitting a string into tokens with a list of possible delimiters
 - [ ] Longest palindromit substring
 - [ ] License plate validation
