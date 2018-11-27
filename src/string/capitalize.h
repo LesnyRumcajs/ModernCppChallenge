@@ -11,16 +11,17 @@ namespace cppchallenge::string {
      */
     std::string capitalize(std::string_view original) {
         std::string result; result.reserve(original.size());
-        std::transform(original.begin(), original.end(), std::back_inserter(result), [toupcase = true](int ch) mutable {
+        std::for_each(original.begin(), original.end(), [&result, toupcase = true](int ch) mutable {
             if (toupcase && std::isalpha(ch)) {
                 toupcase = false;
-                return std::toupper(ch);
+                ch = std::toupper(ch);
             } else if (std::isspace(ch)) {
                 toupcase = true;
-                return ch;
+            } else {
+                ch = std::tolower(ch);
             }
 
-            return std::tolower(ch);
+            result.push_back(ch);
         });
 
         return result;
