@@ -24,7 +24,7 @@ matrix:
     compiler: gcc
     addons:
       apt:
-        packages: [g++-8, valgrind]
+        packages: [g++-8, valgrind, libboost-dev]
         sources: [*all_sources]
   - env: COMPILER=g++-8 BUILD_TYPE=Release
     compiler: gcc
@@ -36,18 +36,16 @@ matrix:
     compiler: clang
     addons:
       apt:
-        packages: [clang++-6.0, g++-8, valgrind]
+        packages: [clang++-6.0, g++-8, valgrind, lcov, curl, libboost-dev]
         sources: [*all_sources, *llvm_sources]
   - env: COMPILER=clang++-6.0 BUILD_TYPE=Release
     compiler: clang
     addons:
       apt:
-        packages: [clang++-6.0, g++-8]
+        packages: [clang++-6.0, g++-8, libboost-dev]
         sources: [*all_sources, *llvm_sources]
 
 before_install:
-- sudo apt update -qq
-- sudo apt install -y -qq libboost-dev lcov curl
 - sudo pip install codecov
 
 install:
