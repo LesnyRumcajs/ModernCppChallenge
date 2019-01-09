@@ -42,7 +42,7 @@ matrix:
     compiler: clang
     addons:
       apt:
-        packages: [clang++-6.0, libboost-dev]
+        packages: [clang++-6.0, g++-8, libboost-dev]
         sources: [*all_sources, *llvm_sources]
 
 before_install:
