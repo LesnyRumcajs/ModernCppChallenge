@@ -37,7 +37,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Capitalizing an article title
 - [x] Joining strings together separated by a delimiter
 - [x] Splitting a string into tokens with a list of possible delimiters
-- [ ] Longest palindromit substring
+- [x] Longest palindromit substring
 - [ ] License plate validation
 - [ ] Extracting URL parts
 - [ ] Transforming dates in strings
