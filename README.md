@@ -38,6 +38,6 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Joining strings together separated by a delimiter
 - [x] Splitting a string into tokens with a list of possible delimiters
 - [x] Longest palindromit substring
-- [ ] License plate validation
+- [x] License plate validation
 - [ ] Extracting URL parts
 - [ ] Transforming dates in strings
