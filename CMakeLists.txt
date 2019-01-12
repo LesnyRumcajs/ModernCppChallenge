@@ -139,6 +139,6 @@ add_executable(ModernCppChallengeString
         src/string/join.h           tst/string/join_test.cpp
         src/string/tokenize.h       tst/string/tokenize_test.cpp
         src/string/longest_palindrome.h tst/string/longest_palindrome_test.cpp
-        src/string/license_plate.h  tst/string/license_plate_test.cpp src/string/parse_uri.h tst/string/parse_uri_test.cpp)
+        src/string/license_plate.h  tst/string/license_plate_test.cpp src/string/parse_uri.h tst/string/parse_uri_test.cpp src/string/date_transform.h tst/string/date_transform_test.cpp)
 target_link_libraries(ModernCppChallengeString gtest_main gmock_main)
 add_test(NAME StringTest COMMAND ModernCppChallengeString)
