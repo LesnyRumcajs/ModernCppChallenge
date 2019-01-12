@@ -41,3 +41,12 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] License plate validation
 - [x] Extracting URL parts
 - [x] Transforming dates in strings
+
+**Streams and Filesystems**
+- [ ] Pascal's triangle
+- [ ] Tabular printing of a list of processes
+- [ ] Removing empty lines from a text file
+- [ ] Computing the size of a directory
+- [ ] Deleting files older than a given date
+- [ ] Finding files in a directory that match a regular expression
+- [ ] Temporary log files
