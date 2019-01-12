@@ -142,3 +142,8 @@ add_executable(ModernCppChallengeString
         src/string/license_plate.h  tst/string/license_plate_test.cpp src/string/parse_uri.h tst/string/parse_uri_test.cpp src/string/date_transform.h tst/string/date_transform_test.cpp)
 target_link_libraries(ModernCppChallengeString gtest_main gmock_main)
 add_test(NAME StringTest COMMAND ModernCppChallengeString)
+
+add_executable(ModernCppChallengeStreamFS
+        src/stream_fs/pascal_triangle.h tst/stream_fs/pascal_triangle_test.cpp)
+target_link_libraries(ModernCppChallengeStreamFS gtest_main gmock_main)
+add_test(NAME StreamFSTest COMMAND ModernCppChallengeStreamFS)
