@@ -1,6 +1,6 @@
 #pragma once
 
-namespace cppchallenge::streams_fs {
+namespace cppchallenge::stream_fs {
     /**
      * Prints a pascal triangle
      * @param out stream

@@ -4,7 +4,7 @@
 #include "../../src/stream_fs/pascal_triangle.h"
 
 namespace {
-    using namespace cppchallenge::streams_fs;
+    using namespace cppchallenge::stream_fs;
     TEST(PascalTriangleTest, GivenOneShoulPrintOne) {
         std::stringstream ss;
         print_pascal_triangle(ss, 1);
