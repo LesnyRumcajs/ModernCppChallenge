@@ -144,6 +144,6 @@ target_link_libraries(ModernCppChallengeString gtest_main gmock_main)
 add_test(NAME StringTest COMMAND ModernCppChallengeString)
 
 add_executable(ModernCppChallengeStreamFS
-        src/stream_fs/pascal_triangle.h tst/stream_fs/pascal_triangle_test.cpp)
+        src/stream_fs/pascal_triangle.h tst/stream_fs/pascal_triangle_test.cpp src/stream_fs/tabular_printing.h src/stream_fs/tabular_printing.cpp tst/stream_fs/tabular_printing_test.cpp)
 target_link_libraries(ModernCppChallengeStreamFS gtest_main gmock_main)
 add_test(NAME StreamFSTest COMMAND ModernCppChallengeStreamFS)
