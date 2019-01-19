@@ -54,7 +54,7 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
 endif ()
 
 # boost
-find_package(Boost)
+find_package(Boost COMPONENTS system filesystem REQUIRED)
 if (Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
 endif ()
@@ -144,6 +144,6 @@ target_link_libraries(ModernCppChallengeString gtest_main gmock_main)
 add_test(NAME StringTest COMMAND ModernCppChallengeString)
 
 add_executable(ModernCppChallengeStreamFS
-        src/stream_fs/pascal_triangle.h tst/stream_fs/pascal_triangle_test.cpp src/stream_fs/tabular_printing.h src/stream_fs/tabular_printing.cpp tst/stream_fs/tabular_printing_test.cpp)
-target_link_libraries(ModernCppChallengeStreamFS gtest_main gmock_main)
+        src/stream_fs/pascal_triangle.h tst/stream_fs/pascal_triangle_test.cpp src/stream_fs/tabular_printing.h src/stream_fs/tabular_printing.cpp tst/stream_fs/tabular_printing_test.cpp src/stream_fs/remove_empty_lines.h tst/stream_fs/remove_empty_lines_test.cpp)
+target_link_libraries(ModernCppChallengeStreamFS gtest_main gmock_main stdc++fs ${Boost_FILESYSTEM_LIBRARY} ${Boost_SYSTEM_LIBRARY})
 add_test(NAME StreamFSTest COMMAND ModernCppChallengeStreamFS)
