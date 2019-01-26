@@ -48,5 +48,5 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Removing empty lines from a text file
 - [x] Computing the size of a directory
 - [x] Deleting files older than a given date
-- [ ] Finding files in a directory that match a regular expression
+- [x] Finding files in a directory that match a regular expression
 - [ ] Temporary log files
