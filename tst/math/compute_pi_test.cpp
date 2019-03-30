@@ -4,25 +4,18 @@
 #include <memory>
 #include "../../src/math/compute_pi.h"
 
-#define GTEST_COUT std::cerr << "[          ] [ INFO ]"
-
 namespace {
     using namespace testing;
 
     class ComputePiTest : public Test {
     protected:
         void SetUp() override {
-            GTEST_COUT << "Creating array\n";
             auto seed_data = std::array<int, std::mt19937::state_size>{};
-            GTEST_COUT << "Generating seed data\n";
             std::generate(seed_data.begin(), seed_data.end(), std::ref(rd));
-            GTEST_COUT << "Creating seed seq\n";
             std::seed_seq seq(seed_data.begin(), seed_data.end());
 
-            GTEST_COUT << "Creating engine\n";
             engine = std::make_unique<std::mt19937>(seq);
 
-            GTEST_COUT << "Creating distribution\n";
             distribution = std::make_unique<std::uniform_real_distribution<>>(std::uniform_real_distribution<>{0, 1});
         }
 
