@@ -147,6 +147,6 @@ add_executable(ModernCppChallengeStreamFS
         src/stream_fs/directory_size.h tst/stream_fs/directory_size_test.cpp
         tst/stream_fs/filesystem_helpers.h
         src/stream_fs/remove_old_files.h tst/stream_fs/remove_old_files_test.cpp
-        src/stream_fs/regex_find.h tst/stream_fs/regex_find_test.cpp)
+        src/stream_fs/regex_find.h tst/stream_fs/regex_find_test.cpp src/stream_fs/logger.h src/stream_fs/logger.cpp tst/stream_fs/logger_test.cpp)
 target_link_libraries(ModernCppChallengeStreamFS gtest_main gmock_main stdc++fs ${Boost_FILESYSTEM_LIBRARY} ${Boost_SYSTEM_LIBRARY})
 add_test(NAME StreamFSTest COMMAND ModernCppChallengeStreamFS)
