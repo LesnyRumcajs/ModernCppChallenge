@@ -12,8 +12,6 @@ if ($ENV{VALGRIND})
     enable_testing()
 endif ()
 
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DGMX_SIMD=SSE2")
-
 # treat all / extra / pedantic warnings as errors
 IF(CMAKE_COMPILER_IS_GNUCXX)
     SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
