@@ -49,4 +49,13 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Computing the size of a directory
 - [x] Deleting files older than a given date
 - [x] Finding files in a directory that match a regular expression
-- [ ] Temporary log files
+- [x] Temporary log files
+
+**Date and Time**
+- [ ] Measuring function execution time
+- [ ] Number of days between two dates
+- [ ] Day of the week
+- [ ] Day and week of the year
+- [ ] Meeting time for multiple time zones
+- [ ] Monthly calendar
+
