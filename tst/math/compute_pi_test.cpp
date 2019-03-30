@@ -35,7 +35,7 @@ namespace {
         }
 
     private:
-        std::random_device rd;
+        std::default_random_engine rd;
         std::unique_ptr<std::uniform_real_distribution<>> distribution;
         std::unique_ptr<std::mt19937> engine;
     };
