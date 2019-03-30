@@ -71,7 +71,7 @@ install:
 before_script:
 - cd "${TRAVIS_BUILD_DIR}"
 - mkdir build && cd build
-- cmake -DCOVERAGE=${COVERAGE} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DGMX_SIMD=SSE2 ..
+- cmake -DCOVERAGE=${COVERAGE} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ..
 
 script:
 - cmake --build . -- -j${JOBS}
