@@ -44,7 +44,8 @@ namespace {
 
        auto duration = measure(fun, 20ms) + measure(fun, 42ms);
 
-       ASSERT_GT(duration, 62ms);
-       ASSERT_LT(duration, 65ms);
+//       ASSERT_GT(duration, 62ms);
+//       ASSERT_LT(duration, 65ms);
+        ASSERT_TRUE(duration >= 62ms && duration <= 65ms);
     }
 }
