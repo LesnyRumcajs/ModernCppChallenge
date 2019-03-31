@@ -16,5 +16,10 @@ namespace cppchallenge::datetime {
          * @return  difference in days
          */
         long day_difference_with(const Date& other) const;
+
+        /**
+         * Returns the day of the week as a numeric type [0-6], with 0 being Sunday.
+         */
+        date_type day_of_week() const;
     };
 }

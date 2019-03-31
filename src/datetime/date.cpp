@@ -1,4 +1,4 @@
-#include "day_diff.h"
+#include "date.h"
 
 #include <boost/date_time.hpp>
 
@@ -14,4 +14,9 @@ namespace cppchallenge::datetime {
         return duration.days();
     }
 
+    Date::date_type Date::day_of_week() const {
+        boost::gregorian::date date{this->year, this->month, this->day};
+        return date.day_of_week();
+    }
 }
+

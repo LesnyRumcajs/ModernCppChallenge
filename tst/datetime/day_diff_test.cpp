@@ -2,7 +2,7 @@
 #include <gmock/gmock.h>
 #include <thread>
 
-#include "../../src/datetime/day_diff.h"
+#include "../../src/datetime/date.h"
 
 namespace {
     using namespace testing;

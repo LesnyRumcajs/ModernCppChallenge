@@ -54,7 +54,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 **Date and Time**
 - [x] Measuring function execution time
 - [x] Number of days between two dates
-- [ ] Day of the week
+- [x] Day of the week
 - [ ] Day and week of the year
 - [ ] Meeting time for multiple time zones
 - [ ] Monthly calendar
