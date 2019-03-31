@@ -71,6 +71,9 @@ install:
 before_script:
 - |
   if [[ "${COVERAGE}" == "1" ]]; then
+    which g++-8
+    g++ --version
+    ls -la /usr/bin
     export PATH=/usr/bin/gcc8/bin:$PATH
   fi
 - cd "${TRAVIS_BUILD_DIR}"
