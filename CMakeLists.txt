@@ -64,7 +64,7 @@ if ($ENV{COVERAGE})
     enable_testing()
     include(CodeCoverage)
     setup_target_for_coverage(${PROJECT_NAME}_coverage tests coverage)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic -pthread -g -O0 -fprofile-arcs -ftest-coverage")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic -pthread -g -O0 --coverage")
 endif ()
 
 add_executable(ModernCppChallengeMath
