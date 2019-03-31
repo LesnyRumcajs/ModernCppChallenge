@@ -18,5 +18,15 @@ namespace cppchallenge::datetime {
         boost::gregorian::date date{this->year, this->month, this->day};
         return date.day_of_week();
     }
+
+    Date::date_type Date::day_of_the_year() const {
+        boost::gregorian::date date{this->year, this->month, this->day};
+        return date.day_of_year();
+    }
+
+    Date::date_type Date::week_of_the_year() const {
+        boost::gregorian::date date{this->year, this->month, this->day};
+        return date.week_number();
+    }
 }
 

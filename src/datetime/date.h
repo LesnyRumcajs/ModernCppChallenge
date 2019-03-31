@@ -21,5 +21,16 @@ namespace cppchallenge::datetime {
          * Returns the day of the week as a numeric type [0-6], with 0 being Sunday.
          */
         date_type day_of_week() const;
+
+        /**
+         * Returns the day of the year (can be 366 for leap years)
+         * @return
+         */
+        date_type day_of_the_year() const;
+
+        /**
+         * Returns the calendar week of the year
+         */
+        date_type week_of_the_year() const;
     };
 }
