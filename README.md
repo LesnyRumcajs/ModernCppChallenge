@@ -52,7 +52,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Temporary log files
 
 **Date and Time**
-- [ ] Measuring function execution time
+- [x] Measuring function execution time
 - [ ] Number of days between two dates
 - [ ] Day of the week
 - [ ] Day and week of the year
