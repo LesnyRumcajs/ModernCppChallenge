@@ -4,6 +4,9 @@ project(ModernCppChallenge)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMakeModules)
 
+# Export compile commands for use with clang-tidy
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 if ($ENV{VALGRIND})
     message("Setting up for memory check")
     find_program(MEMORYCHECK_COMMAND valgrind)
