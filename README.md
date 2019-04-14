@@ -57,5 +57,5 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Day of the week
 - [x] Day and week of the year
 - [x] Meeting time for multiple time zones
-- [ ] Monthly calendar
+- [x] Monthly calendar
 
