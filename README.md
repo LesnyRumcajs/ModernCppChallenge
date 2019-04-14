@@ -59,3 +59,20 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Meeting time for multiple time zones
 - [x] Monthly calendar
 
+**Algorithms and Data Structures**
+- [ ] Priority queue
+- [ ] Circular buffer
+- [ ] Double buffer
+- [ ] The most frequent element in a range
+- [ ] Text histogram
+- [ ] Filtering a list of phone numbers
+- [ ] Transforming a list of phone numbers
+- [ ] Generating all the permutations of a string
+- [ ] Average rating of movies
+- [ ] Pairwise algorithm
+- [ ] Zip algorithm
+- [ ] Select algorithm
+- [ ] Sort algorithm
+- [ ] The shortest path between nodes
+- [ ] The Weasel program
+- [ ] The Game of Life
