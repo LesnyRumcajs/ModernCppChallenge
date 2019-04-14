@@ -1,8 +1,9 @@
 #pragma once
 
-#include <sstream>
-#include <boost/date_time.hpp>
 #include "date.h"
+
+#include <boost/date_time.hpp>
+#include <sstream>
 
 namespace cppchallenge::datetime {
         /**
