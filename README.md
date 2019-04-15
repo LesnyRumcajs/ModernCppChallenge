@@ -60,7 +60,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Monthly calendar
 
 **Algorithms and Data Structures**
-- [ ] Priority queue
+- [x] Priority queue
 - [ ] Circular buffer
 - [ ] Double buffer
 - [ ] The most frequent element in a range

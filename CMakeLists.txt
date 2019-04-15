@@ -157,3 +157,7 @@ add_test(NAME StreamFSTest COMMAND ModernCppChallengeStreamFS)
 add_executable(ModernCppChallengeDatetime src/datetime/function_timer.h tst/datetime/function_timer_test.cpp src/datetime/date.cpp src/datetime/date.h tst/datetime/day_diff_test.cpp tst/datetime/day_of_the_week_test.cpp tst/datetime/date_of_the_year_test.cpp src/datetime/timezone_meeting.cpp src/datetime/timezone_meeting.h tst/datetime/timezone_meeting_test.cpp src/datetime/calendar.cpp src/datetime/calendar.h tst/datetime/calendar_test.cpp)
 target_link_libraries(ModernCppChallengeDatetime gtest_main gmock_main ${Boost_DATE_TIME_LIBRARY})
 add_test(NAME DatetimeTest COMMAND ModernCppChallengeDatetime)
+
+add_executable(ModernCppChallengeAlgorithmsDataStructs src/algorithms_data_structs/priority_queue.h tst/algorithms_data_structs/priority_queue_test.cpp)
+target_link_libraries(ModernCppChallengeAlgorithmsDataStructs gtest_main gmock_main)
+add_test(NAME AlgorithmsDataStructsTest COMMAND ModernCppChallengeAlgorithmsDataStructs)
