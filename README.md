@@ -61,7 +61,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 
 **Algorithms and Data Structures**
 - [x] Priority queue
-- [ ] Circular buffer
+- [x] Circular buffer
 - [ ] Double buffer
 - [ ] The most frequent element in a range
 - [ ] Text histogram
