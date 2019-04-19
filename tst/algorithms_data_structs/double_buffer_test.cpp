@@ -1,7 +1,7 @@
-#include <gtest/gtest.h>
-#include <gmock/gmock.h>
-#include <thread>
 #include "../../src/algorithms_data_structs/double_buffer.h"
+#include <gmock/gmock.h>
+#include <gtest/gtest.h>
+#include <thread>
 
 namespace {
     using namespace testing;

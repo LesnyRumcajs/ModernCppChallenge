@@ -1,8 +1,8 @@
 #pragma once
 
-#include <vector>
-#include <stdexcept>
 #include "circular_iterator.h"
+#include <stdexcept>
+#include <vector>
 
 namespace cppchallenge::algorithms_data_structs {
     template<typename T>

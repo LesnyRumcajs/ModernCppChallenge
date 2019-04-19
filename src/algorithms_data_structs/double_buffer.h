@@ -1,8 +1,8 @@
 #pragma once
 
-#include <vector>
 #include <mutex>
 #include <shared_mutex>
+#include <vector>
 
 namespace cppchallenge::algorithms_data_structs {
     /**

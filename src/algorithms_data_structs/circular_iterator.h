@@ -1,7 +1,7 @@
 #pragma once
 
-#include <iterator>
 #include "circular_buffer.h"
+#include <iterator>
 
 namespace cppchallenge::algorithms_data_structs {
     template<typename T>

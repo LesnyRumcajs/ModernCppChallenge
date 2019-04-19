@@ -1,6 +1,6 @@
+#include "../../src/algorithms_data_structs/circular_buffer.h"
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
-#include "../../src/algorithms_data_structs/circular_buffer.h"
 
 namespace {
     using namespace testing;

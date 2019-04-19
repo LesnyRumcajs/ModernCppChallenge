@@ -1,6 +1,6 @@
-#include <gtest/gtest.h>
-#include <gmock/gmock.h>
 #include "../../src/algorithms_data_structs/priority_queue.h"
+#include <gmock/gmock.h>
+#include <gtest/gtest.h>
 
 namespace {
     using namespace testing;
