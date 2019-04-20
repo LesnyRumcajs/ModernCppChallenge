@@ -63,7 +63,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Priority queue
 - [x] Circular buffer
 - [x] Double buffer
-- [ ] The most frequent element in a range
+- [x] The most frequent element in a range
 - [ ] Text histogram
 - [ ] Filtering a list of phone numbers
 - [ ] Transforming a list of phone numbers

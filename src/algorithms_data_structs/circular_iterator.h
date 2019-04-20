@@ -2,6 +2,7 @@
 
 #include "circular_buffer.h"
 #include <iterator>
+#include <cassert>
 
 namespace cppchallenge::algorithms_data_structs {
     template<typename T>
