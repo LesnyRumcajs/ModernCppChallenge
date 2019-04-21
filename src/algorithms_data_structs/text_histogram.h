@@ -25,12 +25,13 @@ namespace cppchallenge::algorithms_data_structs {
         }
 
         histogram result;
-        std::transform(frequency.begin(), frequency.end(), std::back_inserter(result), [character_count](const auto& el) {
-            return std::make_pair(el.first, 1.0 * el.second / character_count);
-        });
+        std::transform(frequency.begin(), frequency.end(), std::back_inserter(result),
+                       [character_count](const auto &el) {
+                           return std::make_pair(el.first, 1.0 * el.second / character_count);
+                       });
 
-        std::sort(result.begin(), result.end(), [](const auto& el1, const auto& el2){
-           return el1.second > el2.second;
+        std::sort(result.begin(), result.end(), [](const auto &el1, const auto &el2) {
+            return el1.second > el2.second;
         });
 
         return result;
