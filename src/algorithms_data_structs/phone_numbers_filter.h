@@ -13,7 +13,7 @@ namespace cppchallenge::algorithms_data_structs {
      * Checks if a phone number has a valid length
      */
     bool is_valid_length(const PhoneNumber &phoneNumber) {
-        static const auto MIN_PHONE_NUMBER_LEN = 11;
+        constexpr auto MIN_PHONE_NUMBER_LEN = 11;
         return phoneNumber.size() >= MIN_PHONE_NUMBER_LEN;
     }
 
