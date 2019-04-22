@@ -66,7 +66,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] The most frequent element in a range
 - [x] Text histogram
 - [x] Filtering a list of phone numbers
-- [ ] Transforming a list of phone numbers
+- [x] Transforming a list of phone numbers
 - [ ] Generating all the permutations of a string
 - [ ] Average rating of movies
 - [ ] Pairwise algorithm
