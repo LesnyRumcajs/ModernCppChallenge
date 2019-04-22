@@ -16,12 +16,12 @@ if ($ENV{VALGRIND})
 endif ()
 
 # treat all / extra / pedantic warnings as errors
-IF(CMAKE_COMPILER_IS_GNUCXX)
+IF (CMAKE_COMPILER_IS_GNUCXX)
     SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
     SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wextra")
     SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wpedantic")
     SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
-ENDIF(CMAKE_COMPILER_IS_GNUCXX)
+ENDIF (CMAKE_COMPILER_IS_GNUCXX)
 
 # Download and unpack googletest at configure time
 configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
@@ -133,13 +133,13 @@ target_link_libraries(ModernCppChallengeLang gtest_main gmock_main)
 add_test(NAME LangTest COMMAND ModernCppChallengeLang)
 
 add_executable(ModernCppChallengeString
-        src/string/bin2str.h        tst/string/bin2str_test.cpp
-        src/string/str2bin.h        tst/string/str2bin_test.cpp
-        src/string/capitalize.h     tst/string/capitalize_test.cpp
-        src/string/join.h           tst/string/join_test.cpp
-        src/string/tokenize.h       tst/string/tokenize_test.cpp
+        src/string/bin2str.h tst/string/bin2str_test.cpp
+        src/string/str2bin.h tst/string/str2bin_test.cpp
+        src/string/capitalize.h tst/string/capitalize_test.cpp
+        src/string/join.h tst/string/join_test.cpp
+        src/string/tokenize.h tst/string/tokenize_test.cpp
         src/string/longest_palindrome.h tst/string/longest_palindrome_test.cpp
-        src/string/license_plate.h  tst/string/license_plate_test.cpp src/string/parse_uri.h tst/string/parse_uri_test.cpp src/string/date_transform.h tst/string/date_transform_test.cpp)
+        src/string/license_plate.h tst/string/license_plate_test.cpp src/string/parse_uri.h tst/string/parse_uri_test.cpp src/string/date_transform.h tst/string/date_transform_test.cpp)
 target_link_libraries(ModernCppChallengeString gtest_main gmock_main)
 add_test(NAME StringTest COMMAND ModernCppChallengeString)
 
@@ -158,6 +158,6 @@ add_executable(ModernCppChallengeDatetime src/datetime/function_timer.h tst/date
 target_link_libraries(ModernCppChallengeDatetime gtest_main gmock_main ${Boost_DATE_TIME_LIBRARY})
 add_test(NAME DatetimeTest COMMAND ModernCppChallengeDatetime)
 
-add_executable(ModernCppChallengeAlgorithmsDataStructs src/algorithms_data_structs/priority_queue.h tst/algorithms_data_structs/priority_queue_test.cpp src/algorithms_data_structs/circular_buffer.h tst/algorithms_data_structs/circular_buffer_test.cpp src/algorithms_data_structs/circular_iterator.h src/algorithms_data_structs/double_buffer.h tst/algorithms_data_structs/double_buffer_test.cpp src/algorithms_data_structs/most_frequent.h tst/algorithms_data_structs/most_frequent_test.cpp src/algorithms_data_structs/text_histogram.h tst/algorithms_data_structs/text_histogram_test.cpp)
+add_executable(ModernCppChallengeAlgorithmsDataStructs src/algorithms_data_structs/priority_queue.h tst/algorithms_data_structs/priority_queue_test.cpp src/algorithms_data_structs/circular_buffer.h tst/algorithms_data_structs/circular_buffer_test.cpp src/algorithms_data_structs/circular_iterator.h src/algorithms_data_structs/double_buffer.h tst/algorithms_data_structs/double_buffer_test.cpp src/algorithms_data_structs/most_frequent.h tst/algorithms_data_structs/most_frequent_test.cpp src/algorithms_data_structs/text_histogram.h tst/algorithms_data_structs/text_histogram_test.cpp src/algorithms_data_structs/phone_numbers_filter.h tst/algorithms_data_structs/phone_numbers_filter_test.cpp)
 target_link_libraries(ModernCppChallengeAlgorithmsDataStructs gtest_main gmock_main)
 add_test(NAME AlgorithmsDataStructsTest COMMAND ModernCppChallengeAlgorithmsDataStructs)

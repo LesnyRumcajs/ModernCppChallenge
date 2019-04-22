@@ -65,7 +65,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Double buffer
 - [x] The most frequent element in a range
 - [x] Text histogram
-- [ ] Filtering a list of phone numbers
+- [x] Filtering a list of phone numbers
 - [ ] Transforming a list of phone numbers
 - [ ] Generating all the permutations of a string
 - [ ] Average rating of movies
