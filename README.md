@@ -69,7 +69,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Transforming a list of phone numbers
 - [x] Generating all the permutations of a string
 - [x] Average rating of movies
-- [ ] Pairwise algorithm
+- [x] Pairwise algorithm
 - [ ] Zip algorithm
 - [ ] Select algorithm
 - [ ] Sort algorithm
