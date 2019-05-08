@@ -70,7 +70,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Generating all the permutations of a string
 - [x] Average rating of movies
 - [x] Pairwise algorithm
-- [ ] Zip algorithm
+- [x] Zip algorithm
 - [ ] Select algorithm
 - [ ] Sort algorithm
 - [ ] The shortest path between nodes
