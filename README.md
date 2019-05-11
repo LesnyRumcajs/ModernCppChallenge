@@ -71,7 +71,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Average rating of movies
 - [x] Pairwise algorithm
 - [x] Zip algorithm
-- [ ] Select algorithm
+- [x] Select algorithm
 - [ ] Sort algorithm
 - [ ] The shortest path between nodes
 - [ ] The Weasel program
