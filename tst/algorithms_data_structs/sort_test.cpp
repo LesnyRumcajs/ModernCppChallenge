@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
+#include <list>
 #include "../../src/algorithms_data_structs/sort.h"
 
 namespace {
@@ -8,7 +9,7 @@ namespace {
     using cppchallenge::algorithms_data_structs::quick_sort;
 
     TEST(SortTest, NoElementsShouldDoNothing) {
-        auto input = std::vector<int>{};
+        auto input = std::list<int>{};
         quick_sort(input.begin(), input.end());
 
         ASSERT_THAT(input, IsEmpty());

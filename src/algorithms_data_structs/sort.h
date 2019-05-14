@@ -42,7 +42,8 @@ namespace cppchallenge::algorithms_data_structs {
     template<typename It, typename Compare = std::less<>>
     void quick_sort(It begin, It end, Compare compare = Compare()) {
         using iterator_category = typename std::iterator_traits<It>::iterator_category;
-        static_assert(std::is_convertible_v<iterator_category, std::random_access_iterator_tag>);
+        static_assert(std::is_convertible_v<iterator_category, std::random_access_iterator_tag>,
+                "Provided iterator is not random-access!");
 
         if (begin < end) {
             auto part = details::partition(begin, end, compare);
