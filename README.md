@@ -73,6 +73,6 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Zip algorithm
 - [x] Select algorithm
 - [x] Sort algorithm
-- [ ] The shortest path between nodes
+- [x] The shortest path between nodes
 - [ ] The Weasel program
 - [ ] The Game of Life

@@ -29,6 +29,14 @@ namespace cppchallenge::algorithms_data_structs {
             return data.size();
         }
 
+        auto empty() const {
+            return data.empty();
+        }
+
+        auto vertex_exist(const Vertex vertex) const {
+            return data.find(vertex) != data.end();
+        }
+
         auto get_verteces() const {
             std::vector<Vertex> result;
 
@@ -45,4 +53,49 @@ namespace cppchallenge::algorithms_data_structs {
     private:
         std::map<Vertex, neighbor_list_type> data;
     };
+
+    /**
+     * Shortest path using Dijkstra's algorithm
+     */
+    template<typename Vertex = int, typename Weight = double>
+    void shortest_path(const Graph<Vertex, Weight>& graph, const Vertex src, std::map<Vertex, Weight>& distances, std::map<Vertex, Vertex>& previous){
+        if (graph.empty() || !graph.vertex_exist(src)) {
+            throw std::invalid_argument("Empty graph!");
+        }
+
+        previous.clear();
+        distances.clear();
+
+        for (const auto& vertex : graph.get_verteces()) {
+            distances[vertex] = graph.infinity;
+        }
+        distances[src] = 0;
+
+        std::set<typename Graph<Vertex, Weight>::neighbor_type> vertex_queue;
+        vertex_queue.insert(std::make_pair(distances[src], src));
+
+        while (!vertex_queue.empty()) {
+            auto dist = vertex_queue.begin()->first;
+            auto u = vertex_queue.begin()->second;
+
+            vertex_queue.erase(vertex_queue.begin());
+
+            const auto& neighbors = graph.get_neighbors(u);
+
+            for (const auto& neighbor : neighbors) {
+                auto vertex = neighbor.first;
+                auto weight = neighbor.second;
+
+                auto dist_via_u = dist + weight;
+
+                if (dist_via_u < distances[vertex]) {
+                    vertex_queue.erase(std::make_pair(distances[vertex], vertex));
+
+                    distances[vertex] = dist_via_u;
+                    previous[vertex] = u;
+                    vertex_queue.insert(std::make_pair(distances[vertex], vertex));
+                }
+            }
+        }
+    }
 }
