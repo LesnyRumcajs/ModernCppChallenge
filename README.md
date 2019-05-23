@@ -74,5 +74,5 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 - [x] Select algorithm
 - [x] Sort algorithm
 - [x] The shortest path between nodes
-- [ ] The Weasel program
+- [x] The Weasel program
 - [ ] The Game of Life
