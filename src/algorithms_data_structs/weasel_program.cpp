@@ -66,7 +66,7 @@ namespace cppchallenge::algorithms_data_structs {
     }
 
     void Weasel::initialize_random() {
-        std::random_device rd;
+        std::default_random_engine rd;
         auto seed_data = std::array<int, std::mt19937::state_size>{};
         std::generate(seed_data.begin(), seed_data.end(), std::ref(rd));
 

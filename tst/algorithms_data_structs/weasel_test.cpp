@@ -10,7 +10,7 @@ namespace {
     class WeaselPhraseTest : public Test {
     protected:
         void SetUp() override {
-            std::random_device rd;
+            std::default_random_engine rd;
             auto seed_data = std::array<int, std::mt19937::state_size>{};
             std::generate(seed_data.begin(), seed_data.end(), std::ref(rd));
             std::seed_seq seq(seed_data.begin(), seed_data.end());
