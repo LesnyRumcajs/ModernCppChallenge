@@ -5,6 +5,10 @@
 
 My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 
+Required libraries:
+- `boost` (`boost-devel` package)
+- `gtest` / `gmock` - will be downloaded automatically.
+
 **Math**
 - [x] Sum of naturals divisible by 3 and 5
 - [x] Greates common divisor
