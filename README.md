@@ -81,7 +81,7 @@ Required libraries:
 - [x] The Weasel program
 - [x] The Game of Life
 
-**Parallelism**
+**Concurrency**
 - [ ] Parallel transform
 - [ ] Parallel min-max search with threads
 - [ ] Parallel min-max search with asynchronous functions
