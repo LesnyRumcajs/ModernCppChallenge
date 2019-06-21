@@ -13,7 +13,7 @@ int main() {
 
     CrazyWorld world(50,30);
 
-    std::random_device rd;
+    std::default_random_engine rd;
     std::mt19937 mt(rd());
 
     world.randomize(mt);
