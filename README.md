@@ -7,6 +7,7 @@ My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 
 Required libraries:
 - `boost` (`boost-devel` package)
+- `tbb` (`tbb-devel` package)
 - `gtest` / `gmock` - will be downloaded automatically.
 
 **Math**
@@ -82,7 +83,7 @@ Required libraries:
 - [x] The Game of Life
 
 **Concurrency**
-- [ ] Parallel transform
+- [x] Parallel transform
 - [ ] Parallel min-max search with threads
 - [ ] Parallel min-max search with asynchronous functions
 - [ ] Parallel sort

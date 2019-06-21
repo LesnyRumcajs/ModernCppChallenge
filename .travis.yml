@@ -24,25 +24,25 @@ matrix:
     compiler: gcc
     addons:
       apt:
-        packages: [g++-8, valgrind, lcov, curl, libboost-all-dev]
+        packages: [g++-8, valgrind, lcov, curl, libboost-all-dev libtbb-dev]
         sources: [*all_sources]
   - env: COMPILER=g++-8 BUILD_TYPE=Release
     compiler: gcc
     addons:
       apt:
-        packages: [g++-8, libboost-all-dev]
+        packages: [g++-8, libboost-all-dev libtbb-dev]
         sources: [*all_sources]
   - env: COMPILER=clang++-7 BUILD_TYPE=Debug VALGRIND=1
     compiler: clang
     addons:
       apt:
-        packages: [clang++-7, g++-8, valgrind, lcov, curl, libboost-all-dev]
+        packages: [clang++-7, g++-8, valgrind, lcov, curl, libboost-all-dev libtbb-dev]
         sources: [*all_sources, *llvm_sources]
   - env: COMPILER=clang++-7 BUILD_TYPE=Release
     compiler: clang
     addons:
       apt:
-        packages: [clang++-7, g++-8, libboost-all-dev]
+        packages: [clang++-7, g++-8, libboost-all-dev libtbb-dev]
         sources: [*all_sources, *llvm_sources]
 
 before_install:
