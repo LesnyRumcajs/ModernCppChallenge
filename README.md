@@ -79,4 +79,4 @@ Required libraries:
 - [x] Sort algorithm
 - [x] The shortest path between nodes
 - [x] The Weasel program
-- [ ] The Game of Life
+- [x] The Game of Life
