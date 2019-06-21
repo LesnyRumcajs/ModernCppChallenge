@@ -14,7 +14,7 @@ namespace cppchallenge::stream_fs {
     template<typename Duration>
     bool is_older_than(const std::filesystem::path &path, const Duration duration) {
         auto last_write_time = std::filesystem::last_write_time(path).time_since_epoch();
-        auto target_time = (std::chrono::system_clock::now() - duration).time_since_epoch();
+        auto target_time = (std::filesystem::file_time_type::clock::now() - duration).time_since_epoch();
 
         return std::chrono::duration_cast<Duration>(target_time - last_write_time).count() > 0;
     }

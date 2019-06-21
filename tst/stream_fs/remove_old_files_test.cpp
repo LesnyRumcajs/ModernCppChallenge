@@ -33,14 +33,14 @@ namespace {
     TEST_F(IsOlderThanTest, GivenOlderFileShouldReturnTrue) {
         auto tmp_file = TempFile("");
 
-        std::filesystem::last_write_time(tmp_file.get_path(), std::chrono::system_clock::now() - 5min);
+        std::filesystem::last_write_time(tmp_file.get_path(),  std::filesystem::file_time_type::clock::now()- 5min);
         ASSERT_TRUE(is_older_than(tmp_file.get_path(), 1min));
     }
 
     TEST_F(IsOlderThanTest, GivenYoungerFileShouldReturnFalse) {
         auto tmp_file = TempFile("");
 
-        std::filesystem::last_write_time(tmp_file.get_path(), std::chrono::system_clock::now() - 5min);
+        std::filesystem::last_write_time(tmp_file.get_path(), std::filesystem::file_time_type::clock::now() - 5min);
         ASSERT_FALSE(is_older_than(tmp_file.get_path(), 10min));
     }
 
@@ -69,8 +69,8 @@ namespace {
             std::ofstream of2(path / "test2");
         }
 
-        std::filesystem::last_write_time(path / "test1", std::chrono::system_clock::now() - 5min);
-        std::filesystem::last_write_time(path / "test2", std::chrono::system_clock::now() - 15min);
+        std::filesystem::last_write_time(path / "test1", std::filesystem::file_time_type::clock::now() - 5min);
+        std::filesystem::last_write_time(path / "test2", std::filesystem::file_time_type::clock::now() - 15min);
 
         ASSERT_EQ(remove_old_files(path, 1min), 2);
         ASSERT_FALSE(std::filesystem::exists(path / "test1"));
@@ -85,8 +85,8 @@ namespace {
             std::ofstream of2(path / "test2");
         }
 
-        std::filesystem::last_write_time(path / "test1", std::chrono::system_clock::now() + 5min);
-        std::filesystem::last_write_time(path / "test2", std::chrono::system_clock::now() + 15min);
+        std::filesystem::last_write_time(path / "test1", std::filesystem::file_time_type::clock::now() + 5min);
+        std::filesystem::last_write_time(path / "test2", std::filesystem::file_time_type::clock::now() + 15min);
 
         ASSERT_EQ(remove_old_files(path, 1min), 0);
         ASSERT_TRUE(std::filesystem::exists(path / "test1"));
@@ -104,10 +104,10 @@ namespace {
             std::ofstream of4(path / "test_dir" / "test4");
         }
 
-        std::filesystem::last_write_time(path / "test1", std::chrono::system_clock::now() + 1h + 5min);
-        std::filesystem::last_write_time(path / "test2", std::chrono::system_clock::now() - 50s);
-        std::filesystem::last_write_time(path / "test_dir" / "test3", std::chrono::system_clock::now() + 50h);
-        std::filesystem::last_write_time(path / "test_dir" / "test4", std::chrono::system_clock::now() - 10min);
+        std::filesystem::last_write_time(path / "test1", std::filesystem::file_time_type::clock::now() + 1h + 5min);
+        std::filesystem::last_write_time(path / "test2", std::filesystem::file_time_type::clock::now() - 50s);
+        std::filesystem::last_write_time(path / "test_dir" / "test3", std::filesystem::file_time_type::clock::now() + 50h);
+        std::filesystem::last_write_time(path / "test_dir" / "test4", std::filesystem::file_time_type::clock::now() - 10min);
 
         ASSERT_EQ(remove_old_files(path, 0ms), 2);
         ASSERT_TRUE(std::filesystem::exists(path / "test1"));
