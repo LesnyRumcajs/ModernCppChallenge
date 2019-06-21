@@ -21,28 +21,31 @@ clang_sources: &llvm_sources
 matrix:
   include:
     - env: COMPILER=g++-9 BUILD_TYPE=Debug COVERAGE=1 VALGRIND=1
-    compiler: gcc
-    addons:
-      apt:
-        packages: [g++-9, valgrind, lcov, curl, libboost-all-dev libtbb-dev]
-        sources: [*all_sources]
+      compiler: gcc
+      addons:
+        apt:
+          packages: [g++-9, valgrind, lcov, curl, libboost-all-dev, libtbb-dev]
+          sources: [*all_sources]
+
   - env: COMPILER=g++-8 BUILD_TYPE=Release
     compiler: gcc
     addons:
       apt:
-        packages: [g++-9, libboost-all-dev libtbb-dev]
+        packages: [g++-9, libboost-all-dev, libtbb-dev]
         sources: [*all_sources]
-    - env: COMPILER=clang++-8 BUILD_TYPE=Debug VALGRIND=1
+
+  - env: COMPILER=clang++-8 BUILD_TYPE=Debug VALGRIND=1
     compiler: clang
     addons:
       apt:
-        packages: [clang++-8, g++-9, valgrind, lcov, curl, libboost-all-dev libtbb-dev]
+        packages: [clang++-8, g++-9, valgrind, lcov, curl, libboost-all-dev, libtbb-dev]
         sources: [*all_sources, *llvm_sources]
-    - env: COMPILER=clang++-8 BUILD_TYPE=Release
+
+  - env: COMPILER=clang++-8 BUILD_TYPE=Release
     compiler: clang
     addons:
       apt:
-        packages: [clang++-8, g++-9, libboost-all-dev libtbb-dev]
+        packages: [clang++-8, g++-9, libboost-all-dev, libtbb-dev]
         sources: [*all_sources, *llvm_sources]
 
 before_install:
