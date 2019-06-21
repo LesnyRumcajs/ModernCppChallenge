@@ -80,3 +80,13 @@ Required libraries:
 - [x] The shortest path between nodes
 - [x] The Weasel program
 - [x] The Game of Life
+
+**Parallelism**
+- [ ] Parallel transform
+- [ ] Parallel min-max search with threads
+- [ ] Parallel min-max search with asynchronous functions
+- [ ] Parallel sort
+- [ ] Thread-safe terminal logging
+- [ ] Custom service system
+
+
