@@ -39,8 +39,4 @@ namespace {
 
         ASSERT_THAT(result, ElementsAre(2, 4, 6, 8));
     }
-
-    TEST(DummTest, FailingTest) {
-        ASSERT_TRUE(false);
-    }
 }
