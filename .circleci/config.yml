@@ -1,0 +1,20 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: "fedora:30"
+    steps:
+      - checkout
+      - run:
+          name: Installing g++
+          command: 'sudo dnf install -y g++ cmake boost-devel tbb-devel git make'
+      - run:
+          name: Creating Build Files
+          command: 'cmake -H. -Bbuild'
+      - run:
+          name: Creating Binary Files
+          command: 'cmake --build build'
+      - run:
+          name: Unit tests
+          command: 'ctest build/ --verbose'

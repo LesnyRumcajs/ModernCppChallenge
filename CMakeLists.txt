@@ -7,12 +7,13 @@ set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMakeModules)
 # Export compile commands for use with clang-tidy
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+include(CTest)
+enable_testing()
+
 if ($ENV{VALGRIND})
     message("Setting up for memory check")
     find_program(MEMORYCHECK_COMMAND valgrind)
     set(MEMORYCHECK_COMMAND_OPTIONS "--trace-children=yes --leak-check=full --error-exitcode=42")
-    include(CTest)
-    enable_testing()
 endif ()
 
 # treat all / extra / pedantic warnings as errors
@@ -47,14 +48,6 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 add_subdirectory(${CMAKE_BINARY_DIR}/googletest-src
         ${CMAKE_BINARY_DIR}/googletest-build
         EXCLUDE_FROM_ALL)
-
-# The gtest/gtest_main targets carry header search path
-# dependencies automatically when using CMake 2.8.11 or
-# later. Otherwise we have to add them here ourselves.
-if (CMAKE_VERSION VERSION_LESS 2.8.11)
-    include_directories("${gtest_SOURCE_DIR}/include")
-    include_directories("${gmock_SOURCE_DIR}/include")
-endif ()
 
 # boost
 find_package(Boost COMPONENTS system filesystem date_time REQUIRED)
