@@ -17,4 +17,4 @@ jobs:
           command: 'cmake --build build'
       - run:
           name: Unit tests
-          command: 'cd build && ctest --verbose'
+          command: 'cmake --build build/ --target test -- ARGS="--verbose"'
