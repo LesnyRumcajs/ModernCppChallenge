@@ -1,8 +1,6 @@
 # Modern C++ Challenge
-[![Build Status](https://travis-ci.com/LesnyRumcajs/ModernCppChallenge.svg?branch=master)](https://travis-ci.com/LesnyRumcajs/ModernCppChallenge)
 [![codecov](https://codecov.io/gh/LesnyRumcajs/ModernCppChallenge/branch/master/graph/badge.svg)](https://codecov.io/gh/LesnyRumcajs/ModernCppChallenge)
-
-
+[![CircleCI](https://circleci.com/gh/LesnyRumcajs/ModernCppChallenge.svg?style=svg)](https://circleci.com/gh/LesnyRumcajs/ModernCppChallenge)
 My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 
 Required libraries:

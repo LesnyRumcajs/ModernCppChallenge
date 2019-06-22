@@ -7,13 +7,13 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Installing g++
+          name: Installing dependencies
           command: 'sudo dnf install -y g++ cmake boost-devel tbb-devel git make'
       - run:
-          name: Creating Build Files
+          name: Creating build files
           command: 'cmake -H. -Bbuild'
       - run:
-          name: Creating Binary Files
+          name: Creating binaries
           command: 'cmake --build build'
       - run:
           name: Unit tests
