@@ -10,11 +10,12 @@ namespace cppchallenge::concurrency {
     namespace details {
         template<typename Iterator, typename F>
         auto parallel_process(Iterator begin, Iterator end, F &&f) {
+            static const auto PARALLEL_THRESHOLD = 10'000;
             auto container_size = end - begin;
 
             if (container_size == 0) {
                 throw std::invalid_argument("Empty container!");
-            } else if (container_size <= 10'000) {
+            } else if (container_size <= PARALLEL_THRESHOLD) {
                 return std::forward<F>(f)(begin, end);
             }
 
@@ -53,8 +54,8 @@ namespace cppchallenge::concurrency {
      */
     template<typename Iterator>
     auto parallel_max(Iterator begin, Iterator end) {
-        return details::parallel_process(begin, end, [](const auto &first, const auto &second) {
-            return *std::max_element(first, second);
+        return details::parallel_process(begin, end, [](const auto begin, const auto end) {
+            return *std::max_element(begin, end);
         });
     }
 
@@ -63,8 +64,8 @@ namespace cppchallenge::concurrency {
      */
     template<typename Iterator>
     auto parallel_min(Iterator begin, Iterator end) {
-        return details::parallel_process(begin, end, [](const auto &first, const auto &second) {
-            return *std::min_element(first, second);
+        return details::parallel_process(begin, end, [](const auto begin, const auto end) {
+            return *std::min_element(begin, end);
         });
     }
 
@@ -73,8 +74,8 @@ namespace cppchallenge::concurrency {
      */
     template<typename Iterator>
     auto parallel_sum(Iterator begin, Iterator end) {
-        return details::parallel_process(begin, end, [](const auto &first, const auto &second) {
-            return std::accumulate(first, second, 0);
+        return details::parallel_process(begin, end, [](const auto begin, const auto end) {
+            return std::accumulate(begin, end, 0);
         });
     }
 }
