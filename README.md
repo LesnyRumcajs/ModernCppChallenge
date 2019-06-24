@@ -83,7 +83,7 @@ Required libraries:
 
 **Concurrency**
 - [x] Parallel transform
-- [ ] Parallel min-max search with threads
+- [x] Parallel min-max search with threads
 - [ ] Parallel min-max search with asynchronous functions
 - [ ] Parallel sort
 - [ ] Thread-safe terminal logging
