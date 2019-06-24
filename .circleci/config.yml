@@ -48,3 +48,10 @@ jobs:
           name: upload coverage to codecov
           command: 'bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"'
 
+
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - simple_build
+      - coverage
