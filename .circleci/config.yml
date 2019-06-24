@@ -1,20 +1,50 @@
 version: 2
 
 jobs:
-  build:
+  simple_build:
     docker:
       - image: "fedora:30"
     steps:
       - checkout
       - run:
-          name: Installing dependencies
+          name: installing dependencies
           command: 'sudo dnf install -y g++ cmake boost-devel tbb-devel git make'
       - run:
-          name: Creating build files
-          command: 'cmake -H. -Bbuild'
+          name: creating build files
+          command: 'cmake -h. -bbuild'
       - run:
-          name: Creating binaries
+          name: creating binaries
           command: 'cmake --build build'
       - run:
-          name: Unit tests
-          command: 'cmake --build build/ --target test -- ARGS="--verbose"'
+          name: unit tests
+          command: 'cmake --build build/ --target test -- args="--verbose"'
+  coverage:
+    docker:
+      - image: "fedora:30"
+    steps:
+      - checkout
+      - run:
+          name: installing dependencies
+          command: 'sudo dnf install -y g++ cmake boost-devel tbb-devel git make'
+      - run:
+          name: installing master lcov
+          command: 'git clone https://github.com/linux-test-project/lcov && cd lcov && make install && cd -'
+      - run:
+          name: install lcov dependencies
+          command: 'dnf install -y cpan zlib-devel && cpan Test::More PerlIO::gzip Test JSON'
+      - run:
+          name: creating build files
+          command: 'COVERAGE=1 cmake -h. -bbuild -DCMAKE_BUILD_TYPE=Debug'
+      - run:
+          name: creating binaries
+          command: 'cmake --build build'
+      - run:
+          name: unit tests
+          command: 'cmake --build build/ --target test -- args="--verbose"'
+      - run:
+          name: collect coverage
+          command: 'lcov --directory build/ --capture --output-file coverage.info && lcov --remove coverage.info /usr/* --output-file coverage.info'
+      - run:
+          name: upload coverage to codecov
+          command: 'bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"'
+
