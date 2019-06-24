@@ -11,7 +11,7 @@ jobs:
           command: 'sudo dnf install -y g++ cmake boost-devel tbb-devel git make'
       - run:
           name: creating build files
-          command: 'cmake -H. -bbuild'
+          command: 'cmake -H. -Bbuild'
       - run:
           name: creating binaries
           command: 'cmake --build build'
@@ -34,7 +34,7 @@ jobs:
           command: 'dnf install -y cpan zlib-devel && cpan Test::More PerlIO::gzip Test JSON'
       - run:
           name: creating build files
-          command: 'COVERAGE=1 cmake -H. -bbuild -DCMAKE_BUILD_TYPE=Debug'
+          command: 'COVERAGE=1 cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug'
       - run:
           name: creating binaries
           command: 'cmake --build build'
