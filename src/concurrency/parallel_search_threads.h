@@ -4,6 +4,7 @@
 #include <thread>
 #include <vector>
 #include <algorithm>
+#include <numeric>
 
 namespace cppchallenge::concurrency {
     namespace details {
@@ -67,4 +68,13 @@ namespace cppchallenge::concurrency {
         });
     }
 
+    /**
+     * Finds the sum of elements a given container
+     */
+    template<typename Iterator>
+    auto parallel_sum(Iterator begin, Iterator end) {
+        return details::parallel_process(begin, end, [](const auto &first, const auto &second) {
+            return std::accumulate(first, second, 0);
+        });
+    }
 }
