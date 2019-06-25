@@ -160,7 +160,7 @@ add_executable(ModernCppChallengeWeaselShow src/algorithms_data_structs/weasel_p
 add_executable(ModernCppChallengeGameOfLife src/algorithms_data_structs/game_of_life.h src/algorithms_data_structs/game_of_life.cpp src/algorithms_data_structs/game_of_life_run.cpp)
 
 add_executable(ModernCppChallengeConcurrency
-        src/concurrency/parallel_transform.h tst/concurrency/parallel_transform_test.cpp src/concurrency/parallel_search_threads.h tst/concurrency/parallel_search_threads_test.cpp)
+        src/concurrency/parallel_transform.h tst/concurrency/parallel_transform_test.cpp src/concurrency/parallel_search_threads.h tst/concurrency/parallel_search_threads_test.cpp src/concurrency/parallel_search_async.h tst/concurrency/parallel_search_async_test.cpp)
 target_link_libraries(ModernCppChallengeConcurrency gtest_main gmock_main tbb)
 add_test(NAME ConcurrencyTest COMMAND ModernCppChallengeConcurrency)
 

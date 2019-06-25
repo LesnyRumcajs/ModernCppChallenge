@@ -35,14 +35,14 @@ namespace {
        ASSERT_THROW(parallel_min(input.begin(), input.end()), std::invalid_argument);
    }
 
-   TEST(ParallelSearchMinThreadTest, SmallContainerShouldFindMaxValue) {
+   TEST(ParallelSearchMinThreadTest, SmallContainerShouldFindMinValue) {
        auto input = std::vector{3,1,-6,6,5};
        auto result = parallel_min(input.begin(), input.end());
 
        ASSERT_EQ(result, -6);
    }
 
-   TEST(ParallelSearchMinThreadTest, LargeContainerShouldFindMaxValue) {
+   TEST(ParallelSearchMinThreadTest, LargeContainerShouldFindMinValue) {
        auto input = std::vector<int>(42'420, 42);
        input[23'042] -= 1;
 
