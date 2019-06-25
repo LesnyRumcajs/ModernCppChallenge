@@ -84,7 +84,7 @@ Required libraries:
 **Concurrency**
 - [x] Parallel transform
 - [x] Parallel min-max search with threads
-- [ ] Parallel min-max search with asynchronous functions
+- [x] Parallel min-max search with asynchronous functions
 - [ ] Parallel sort
 - [ ] Thread-safe terminal logging
 - [ ] Custom service system
