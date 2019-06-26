@@ -39,12 +39,12 @@ namespace cppchallenge::concurrency {
                     std::advance(last, container_size);
                 }
 
-                tasks.emplace_back(std::async(std::launch::async, [first, last, &f](){
+                tasks.emplace_back(std::async(std::launch::async, [first, last, &f]() {
                     return std::forward<F>(f)(first, last);
                 }));
             }
 
-            auto candidates = std::vector<iterator_value_type >{};
+            auto candidates = std::vector<iterator_value_type>{};
             for (auto &task : tasks) candidates.emplace_back(task.get());
 
             return std::forward<F>(f)(candidates.begin(), candidates.end());

@@ -4,6 +4,7 @@
 #include <future>
 
 #include "../../src/concurrency/sync_log.h"
+
 namespace {
     using namespace testing;
     using cppchallenge::concurrency::SyncLogger;

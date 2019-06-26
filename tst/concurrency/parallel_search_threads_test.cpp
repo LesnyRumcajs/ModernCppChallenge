@@ -9,60 +9,61 @@ namespace {
     using cppchallenge::concurrency::parallel_min;
     using cppchallenge::concurrency::parallel_sum;
 
-   TEST(ParallelSearchMaxThreadTest, EmptyContainerShouldThrow) {
-       auto input = std::vector<int>{};
-       ASSERT_THROW(parallel_max(input.begin(), input.end()), std::invalid_argument);
-   }
+    TEST(ParallelSearchMaxThreadTest, EmptyContainerShouldThrow) {
+        auto input = std::vector<int>{};
+        ASSERT_THROW(parallel_max(input.begin(), input.end()), std::invalid_argument);
+    }
 
-   TEST(ParallelSearchMaxThreadTest, SmallContainerShouldFindMaxValue) {
-       auto input = std::vector{3,1,-6,6,5};
-       auto result = parallel_max(input.begin(), input.end());
+    TEST(ParallelSearchMaxThreadTest, SmallContainerShouldFindMaxValue) {
+        auto input = std::vector{3, 1, -6, 6, 5};
+        auto result = parallel_max(input.begin(), input.end());
 
-       ASSERT_EQ(result, 6);
-   }
+        ASSERT_EQ(result, 6);
+    }
 
-   TEST(ParallelSearchMaxThreadTest, LargeContainerShouldFindMaxValue) {
-       auto input = std::vector<int>(42'420, 42);
-       input[23'042] += 1;
+    TEST(ParallelSearchMaxThreadTest, LargeContainerShouldFindMaxValue) {
+        auto input = std::vector<int>(42'420, 42);
+        input[23'042] += 1;
 
-       auto result = parallel_max(input.begin(), input.end());
+        auto result = parallel_max(input.begin(), input.end());
 
-       ASSERT_EQ(result, 43);
-   }
+        ASSERT_EQ(result, 43);
+    }
 
-   TEST(ParallelSearchMinThreadTest, EmptyContainerShouldThrow) {
-       auto input = std::vector<int>{};
-       ASSERT_THROW(parallel_min(input.begin(), input.end()), std::invalid_argument);
-   }
+    TEST(ParallelSearchMinThreadTest, EmptyContainerShouldThrow) {
+        auto input = std::vector<int>{};
+        ASSERT_THROW(parallel_min(input.begin(), input.end()), std::invalid_argument);
+    }
 
-   TEST(ParallelSearchMinThreadTest, SmallContainerShouldFindMinValue) {
-       auto input = std::vector{3,1,-6,6,5};
-       auto result = parallel_min(input.begin(), input.end());
+    TEST(ParallelSearchMinThreadTest, SmallContainerShouldFindMinValue) {
+        auto input = std::vector{3, 1, -6, 6, 5};
+        auto result = parallel_min(input.begin(), input.end());
 
-       ASSERT_EQ(result, -6);
-   }
+        ASSERT_EQ(result, -6);
+    }
 
-   TEST(ParallelSearchMinThreadTest, LargeContainerShouldFindMinValue) {
-       auto input = std::vector<int>(42'420, 42);
-       input[23'042] -= 1;
+    TEST(ParallelSearchMinThreadTest, LargeContainerShouldFindMinValue) {
+        auto input = std::vector<int>(42'420, 42);
+        input[23'042] -= 1;
 
-       auto result = parallel_min(input.begin(), input.end());
+        auto result = parallel_min(input.begin(), input.end());
 
-       ASSERT_EQ(result, 41);
-   }
+        ASSERT_EQ(result, 41);
+    }
 
-   TEST(ParallelSearchSumThreadTest, EmptyContainerShouldThrow) {
-       auto input = std::vector<int>{};
-       ASSERT_THROW(parallel_sum(input.begin(), input.end()), std::invalid_argument);
-   }
+    TEST(ParallelSearchSumThreadTest, EmptyContainerShouldThrow) {
+        auto input = std::vector<int>{};
+        ASSERT_THROW(parallel_sum(input.begin(), input.end()), std::invalid_argument);
+    }
 
-   TEST(ParallelSearchSumThreadTest, ShouldSumSmall) {
-       auto input = std::vector{1,2,3};
-       auto result = parallel_sum(input.begin(), input.end());
+    TEST(ParallelSearchSumThreadTest, ShouldSumSmall) {
+        auto input = std::vector{1, 2, 3};
+        auto result = parallel_sum(input.begin(), input.end());
 
-       ASSERT_EQ(result, 6);
-   }
-   TEST(ParallelSearchSumThreadTest, ShouldSumLarge) {
+        ASSERT_EQ(result, 6);
+    }
+
+    TEST(ParallelSearchSumThreadTest, ShouldSumLarge) {
         auto input = std::vector<int>(42'420, 1);
         auto result = parallel_sum(input.begin(), input.end());
 

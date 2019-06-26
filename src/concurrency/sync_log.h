@@ -10,7 +10,7 @@ namespace cppchallenge::concurrency {
      */
     class SyncLogger {
     public:
-        explicit SyncLogger(std::ostream& os = std::cout) : os(os) {}
+        explicit SyncLogger(std::ostream &os = std::cout) : os(os) {}
 
         void log(std::string_view data) {
             std::lock_guard lock(mut);
@@ -18,7 +18,7 @@ namespace cppchallenge::concurrency {
         }
 
     private:
-        std::ostream& os;
+        std::ostream &os;
         std::mutex mut;
     };
 }
