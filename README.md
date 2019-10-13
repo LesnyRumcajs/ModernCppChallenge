@@ -89,4 +89,11 @@ Required libraries:
 - [x] Thread-safe terminal logging
 - [x] Custom service system
 
+**Design patterns**
+- [ ] Password validation
+- [ ] Password generator
+- [ ] Social insurance number generator
+- [ ] Acceptance system
+- [ ] Observerd vector container
+- [ ] Calculating price with discounts
 
