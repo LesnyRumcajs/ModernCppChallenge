@@ -92,7 +92,7 @@ Required libraries:
 **Design patterns**
 - [x] Password validation (Decorator)
 - [x] Password generator (Composite)
-- [ ] Social insurance number generator (Template Method)
+- [x] Social insurance number generator (Template Method)
 - [ ] Acceptance system
 - [ ] Observerd vector container
 - [ ] Calculating price with discounts
