@@ -90,7 +90,7 @@ Required libraries:
 - [x] Custom service system
 
 **Design patterns**
-- [ ] Password validation
+- [x] Password validation
 - [ ] Password generator
 - [ ] Social insurance number generator
 - [ ] Acceptance system
