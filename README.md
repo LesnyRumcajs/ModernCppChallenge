@@ -91,7 +91,7 @@ Required libraries:
 
 **Design patterns**
 - [x] Password validation
-- [ ] Password generator
+- [x] Password generator
 - [ ] Social insurance number generator
 - [ ] Acceptance system
 - [ ] Observerd vector container
