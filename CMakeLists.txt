@@ -160,9 +160,12 @@ add_executable(ModernCppChallengeWeaselShow src/algorithms_data_structs/weasel_p
 add_executable(ModernCppChallengeGameOfLife src/algorithms_data_structs/game_of_life.h src/algorithms_data_structs/game_of_life.cpp src/algorithms_data_structs/game_of_life_run.cpp)
 
 add_executable(ModernCppChallengeConcurrency
-        src/concurrency/parallel_transform.h tst/concurrency/parallel_transform_test.cpp src/concurrency/parallel_search_threads.h tst/concurrency/parallel_search_threads_test.cpp src/concurrency/parallel_search_async.h tst/concurrency/parallel_search_async_test.cpp src/concurrency/parallel_sort.h tst/concurrency/parallel_sort_test.cpp src/concurrency/sync_log.h tst/concurrency/sync_log_test.cpp)
+        src/concurrency/parallel_transform.h tst/concurrency/parallel_transform_test.cpp src/concurrency/parallel_search_threads.h tst/concurrency/parallel_search_threads_test.cpp src/concurrency/parallel_search_async.h tst/concurrency/parallel_search_async_test.cpp src/concurrency/parallel_sort.h tst/concurrency/parallel_sort_test.cpp src/concurrency/sync_log.h tst/concurrency/sync_log_test.cpp src/concurrency/custom_service_system.h tst/concurrency/custom_service_system_test.cpp)
 target_link_libraries(ModernCppChallengeConcurrency gtest_main gmock_main tbb)
 add_test(NAME ConcurrencyTest COMMAND ModernCppChallengeConcurrency)
 
-add_executable(ModernCppChallengeConcurrencyBenchmark src/concurrency/parallel_transform_benchmark.cpp src/concurrency/parallel_transform_benchmark.cpp)
+add_executable(ModernCppChallengeConcurrencyBenchmark src/concurrency/parallel_transform_benchmark.cpp src/concurrency/parallel_transform_benchmark.cpp )
 target_link_libraries(ModernCppChallengeConcurrencyBenchmark tbb)
+
+add_executable(ModernCppChallengeCustomServiceSystemSimulation src/concurrency/custom_service_system.h src/concurrency/custom_service_system_simulation.cpp src/concurrency/custom_service_system_simulation.cpp)
+target_link_libraries(ModernCppChallengeCustomServiceSystemSimulation pthread tbb)

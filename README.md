@@ -87,6 +87,6 @@ Required libraries:
 - [x] Parallel min-max search with asynchronous functions
 - [x] Parallel sort
 - [x] Thread-safe terminal logging
-- [ ] Custom service system
+- [x] Custom service system
 
 
