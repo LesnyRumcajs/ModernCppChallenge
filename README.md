@@ -90,9 +90,9 @@ Required libraries:
 - [x] Custom service system
 
 **Design patterns**
-- [x] Password validation
-- [x] Password generator
-- [ ] Social insurance number generator
+- [x] Password validation (Decorator)
+- [x] Password generator (Composite)
+- [ ] Social insurance number generator (Template Method)
 - [ ] Acceptance system
 - [ ] Observerd vector container
 - [ ] Calculating price with discounts
