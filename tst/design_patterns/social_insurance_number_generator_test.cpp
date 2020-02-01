@@ -1,5 +1,5 @@
-#include <gtest/gtest.h>
 #include <gmock/gmock.h>
+#include <gtest/gtest.h>
 
 #include "../../src/design_patterns/social_insurance_number_generator.h"
 
@@ -17,7 +17,7 @@ namespace {
 
     TEST(SocialInsuranceNumberGeneratorTest, ShouldGenerateDifferentForNortheria) {
         NortheriaSocialNumberGenerator generator;
-        for (auto i(0u); i < 100; ++i) {
+        for (auto i(0U); i < 100; ++i) {
             auto number1 = generator.generate(Sex::male, 2019, 13, 10);
             auto number2 = generator.generate(Sex::male, 2019, 13, 10);
 
@@ -26,7 +26,7 @@ namespace {
     }
     TEST(SocialInsuranceNumberGeneratorTest, ShouldGenerateDifferentForSoutheria) {
         SoutheriaSocialNumberGenerator generator;
-        for (auto i(0u); i < 100; ++i) {
+        for (auto i(0U); i < 100; ++i) {
             auto number1 = generator.generate(Sex::male, 2019, 13, 10);
             auto number2 = generator.generate(Sex::male, 2019, 13, 10);
 

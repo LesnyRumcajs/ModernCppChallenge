@@ -1,7 +1,7 @@
 #pragma once
 
-#include <string_view>
 #include <memory>
+#include <string_view>
 
 namespace cppchallenge::design_patterns {
     /**
@@ -9,7 +9,7 @@ namespace cppchallenge::design_patterns {
      */
     class PasswordValidator {
     public:
-        virtual bool validate(std::string_view password) = 0;
+        virtual auto validate(std::string_view password) -> bool = 0;
 
         virtual ~PasswordValidator() = default;
     };
@@ -21,7 +21,7 @@ namespace cppchallenge::design_patterns {
     public:
         explicit LengthValidator(unsigned min_length) : min_length(min_length) {}
 
-        bool validate(std::string_view password) override {
+        auto validate(std::string_view password) -> bool override {
             return password.length() >= min_length;
         }
 
@@ -37,7 +37,7 @@ namespace cppchallenge::design_patterns {
         explicit PasswordValidatorDecorator(std::unique_ptr<PasswordValidator> validator) : inner(
                 std::move(validator)) {}
 
-        bool validate(std::string_view password) override {
+        auto validate(std::string_view password) -> bool override {
             return inner->validate(password);
         }
 
@@ -54,7 +54,7 @@ namespace cppchallenge::design_patterns {
                 std::move(validator)) {
         }
 
-        bool validate(std::string_view password) override {
+        auto validate(std::string_view password) -> bool override {
             return PasswordValidatorDecorator::validate(password) &&
                    password.find_first_of("0123456789") != std::string::npos;
         }
@@ -69,8 +69,9 @@ namespace cppchallenge::design_patterns {
                 std::move(validator)) {
         }
 
-        bool validate(std::string_view password) override {
-            if (!PasswordValidatorDecorator::validate(password)) return false;
+        auto validate(std::string_view password) -> bool override {
+            if (!PasswordValidatorDecorator::validate(password)) { return false;
+}
 
             bool has_lower = false, has_upper = false;
 
@@ -81,7 +82,8 @@ namespace cppchallenge::design_patterns {
                     has_upper = true;
                 }
 
-                if (has_lower && has_upper) return true;
+                if (has_lower && has_upper) { return true;
+}
             }
 
             return false;
@@ -97,7 +99,7 @@ namespace cppchallenge::design_patterns {
                 std::move(validator)) {
         }
 
-        bool validate(std::string_view password) override {
+        auto validate(std::string_view password) -> bool override {
             return PasswordValidatorDecorator::validate(password) &&
                    password.find_first_of("!@#$%^&*(){}[]?<>") != std::string::npos;
         }

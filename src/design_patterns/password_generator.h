@@ -1,9 +1,9 @@
 #pragma once
 
-#include <string>
+#include <algorithm>
 #include <memory>
 #include <random>
-#include <algorithm>
+#include <string>
 
 namespace cppchallenge::design_patterns {
 
@@ -12,11 +12,11 @@ namespace cppchallenge::design_patterns {
      */
     class PasswordGenerator {
     public:
-        virtual std::string generate() = 0;
+        virtual auto generate() -> std::string = 0;
 
-        [[nodiscard]] virtual std::string allowed_chars() const = 0;
+        [[nodiscard]] virtual auto allowed_chars() const -> std::string = 0;
 
-        [[nodiscard]] virtual size_t get_length() const = 0;
+        [[nodiscard]] virtual auto get_length() const -> size_t = 0;
 
         virtual void add(std::unique_ptr<PasswordGenerator> generator) = 0;
 
@@ -27,12 +27,12 @@ namespace cppchallenge::design_patterns {
     public:
         explicit BasicPasswordGenerator(size_t password_length) noexcept : password_length(password_length) {}
 
-        [[nodiscard]]size_t get_length() const noexcept final {
+        [[nodiscard]]auto get_length() const noexcept -> size_t final {
             return password_length;
         }
 
     private:
-        std::string generate() override {
+        auto generate() -> std::string override {
             throw std::runtime_error("Not implemented!");
         }
 
@@ -49,7 +49,7 @@ namespace cppchallenge::design_patterns {
     public:
         explicit DigitGenerator(size_t password_length) noexcept : BasicPasswordGenerator(password_length) {}
 
-        [[nodiscard]]std::string allowed_chars() const override {
+        [[nodiscard]]auto allowed_chars() const -> std::string override {
             return "0123456789";
         }
     };
@@ -58,7 +58,7 @@ namespace cppchallenge::design_patterns {
     public:
         explicit SymbolGenerator(size_t password_length) noexcept  : BasicPasswordGenerator(password_length) {}
 
-        [[nodiscard]]std::string allowed_chars() const override {
+        [[nodiscard]]auto allowed_chars() const -> std::string override {
             return "!@#$%^&*()_+{}[]<>,.";
         }
     };
@@ -67,7 +67,7 @@ namespace cppchallenge::design_patterns {
     public:
         explicit UpperLetterGenerator(size_t password_length) noexcept  : BasicPasswordGenerator(password_length) {}
 
-        [[nodiscard]]std::string allowed_chars() const override {
+        [[nodiscard]]auto allowed_chars() const -> std::string override {
             return "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         }
     };
@@ -76,7 +76,7 @@ namespace cppchallenge::design_patterns {
     public:
         explicit LowerLetterGenerator(size_t password_length) noexcept  : BasicPasswordGenerator(password_length) {}
 
-        [[nodiscard]]std::string allowed_chars() const override {
+        [[nodiscard]]auto allowed_chars() const -> std::string override {
             return "abcdefghijklmnopqrstuvwxyz";
         }
     };
@@ -90,7 +90,7 @@ namespace cppchallenge::design_patterns {
             eng.seed(seq);
         }
 
-        std::string generate() override {
+        auto generate() -> std::string override {
             std::string password;
             for (const auto &generator : generators) {
                 const auto chars = generator->allowed_chars();
@@ -113,11 +113,11 @@ namespace cppchallenge::design_patterns {
         std::mt19937 eng;
         std::vector<std::unique_ptr<PasswordGenerator>> generators;
 
-        [[nodiscard]]std::string allowed_chars() const override {
+        [[nodiscard]]auto allowed_chars() const -> std::string override {
             throw std::runtime_error("Not implemented!");
         }
 
-        [[nodiscard]]size_t get_length() const override {
+        [[nodiscard]]auto get_length() const -> size_t override {
             throw std::runtime_error("Not implemented!");
         }
     };

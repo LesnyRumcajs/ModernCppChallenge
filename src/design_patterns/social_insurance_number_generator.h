@@ -1,17 +1,17 @@
 #pragma once
 
-#include <random>
 #include <algorithm>
-#include <sstream>
 #include <map>
 #include <memory>
+#include <random>
+#include <sstream>
 
 namespace cppchallenge::design_patterns {
     enum class Sex {female, male};
 
     class SocialNumberGenerator {
     public:
-        std::string generate(Sex sex, unsigned year, unsigned month, unsigned day) {
+        auto generate(Sex sex, unsigned year, unsigned month, unsigned day) -> std::string {
             std::stringstream social_number;
             social_number << sex_digit(sex);
             social_number << year << month << day;
@@ -31,9 +31,9 @@ namespace cppchallenge::design_patterns {
 
         virtual ~SocialNumberGenerator() = default;
     protected:
-        [[nodiscard]]virtual int sex_digit(Sex sex) const noexcept = 0;
+        [[nodiscard]]virtual auto sex_digit(Sex sex) const noexcept -> int = 0;
 
-        [[nodiscard]]virtual int next_random(unsigned year, unsigned month, unsigned day) {
+        [[nodiscard]]virtual auto next_random(unsigned year, unsigned month, unsigned day) -> int {
             auto key = year * 10000 + month * 100 + day;
             while (true) {
                 auto number = dist(eng);
@@ -45,7 +45,7 @@ namespace cppchallenge::design_patterns {
             }
         }
 
-        [[nodiscard]]int modulo_value() const noexcept {
+        [[nodiscard]]auto modulo_value() const noexcept -> int {
             return 11;
         }
 
@@ -67,7 +67,7 @@ namespace cppchallenge::design_patterns {
         SoutheriaSocialNumberGenerator() : SocialNumberGenerator(1000, 9999) {}
 
     protected:
-        [[nodiscard]]int sex_digit(Sex sex) const noexcept override {
+        [[nodiscard]]auto sex_digit(Sex sex) const noexcept -> int override {
             return sex == Sex::female ? 1 : 2;
         }
     };
@@ -77,7 +77,7 @@ namespace cppchallenge::design_patterns {
         NortheriaSocialNumberGenerator() : SocialNumberGenerator(10000, 99999) {}
 
     protected:
-        [[nodiscard]]int sex_digit(Sex sex) const noexcept override {
+        [[nodiscard]]auto sex_digit(Sex sex) const noexcept -> int override {
             return sex == Sex::female ? 9 : 7;
         }
     };
@@ -89,7 +89,7 @@ namespace cppchallenge::design_patterns {
            generators["southeria"] = std::make_unique<SoutheriaSocialNumberGenerator>();
         }
 
-        [[nodiscard]]SocialNumberGenerator* getGenerator(std::string_view country) const {
+        [[nodiscard]]auto getGenerator(std::string_view country) const -> SocialNumberGenerator* {
             if (auto it = generators.find(country.data()); it != generators.end()) {
                 return it->second.get();
             }
