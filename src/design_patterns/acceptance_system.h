@@ -1,7 +1,7 @@
 #pragma once
 
-#include <string>
 #include <memory>
+#include <string>
 #include <utility>
 
 // Using Chain of Responsibility design pattern
@@ -17,7 +17,7 @@ namespace cppchallenge::design_patterns {
          * returns maximum amount of currency units the role can approve
          */
         [[nodiscard]]
-        virtual CurrencyUnit approval_limit() const = 0;
+        virtual auto approval_limit() const -> CurrencyUnit = 0;
     };
 
     /**
@@ -26,7 +26,7 @@ namespace cppchallenge::design_patterns {
     class RegularRole final: public Role {
     public:
         [[nodiscard]]
-        CurrencyUnit approval_limit() const override {
+        auto approval_limit() const -> CurrencyUnit override {
             return 1'000;
         }
     };
@@ -36,7 +36,7 @@ namespace cppchallenge::design_patterns {
      */
     class PMRole final : public Role {
     public:
-        [[nodiscard]] CurrencyUnit approval_limit() const override {
+        [[nodiscard]] auto approval_limit() const -> CurrencyUnit override {
             return 10'000;
         }
     };
@@ -46,7 +46,7 @@ namespace cppchallenge::design_patterns {
      */
     class DirectorRole final : public Role {
     public:
-        [[nodiscard]] CurrencyUnit approval_limit() const override {
+        [[nodiscard]] auto approval_limit() const -> CurrencyUnit override {
             return 100'000;
         }
     };
@@ -56,7 +56,7 @@ namespace cppchallenge::design_patterns {
      */
     class CEORole final : public Role {
     public:
-        [[nodiscard]] CurrencyUnit approval_limit() const override {
+        [[nodiscard]] auto approval_limit() const -> CurrencyUnit override {
             return std::numeric_limits<CurrencyUnit>::max();
         }
     };
@@ -65,7 +65,7 @@ namespace cppchallenge::design_patterns {
     public:
         Expense(std::string_view name, const CurrencyUnit amount) : name(name), amount(amount) {}
 
-        [[nodiscard]] CurrencyUnit get_amount() const {
+        [[nodiscard]] auto get_amount() const -> CurrencyUnit {
             return amount;
         }
 
@@ -87,7 +87,7 @@ namespace cppchallenge::design_patterns {
          * Returns the name of the employee that can approve the expense - either this employee
          * or any manager in line. Throws exception if nobody can approve.
          */
-        [[nodiscard]] std::string get_approver(const Expense& expense) const {
+        [[nodiscard]] auto get_approver(const Expense& expense) const -> std::string {
             if (role->approval_limit() >= expense.get_amount()) {
                 return name;
             }
