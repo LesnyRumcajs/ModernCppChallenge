@@ -93,7 +93,7 @@ Required libraries:
 - [x] Password validation (Decorator)
 - [x] Password generator (Composite)
 - [x] Social insurance number generator (Template Method)
-- [x] Acceptance system
-- [ ] Observerd vector container
+- [x] Acceptance system (Chain of Responsibility)
+- [x] Observed vector container (Observer)
 - [ ] Calculating price with discounts
 
