@@ -95,5 +95,5 @@ Required libraries:
 - [x] Social insurance number generator (Template Method)
 - [x] Acceptance system (Chain of Responsibility)
 - [x] Observed vector container (Observer)
-- [ ] Calculating price with discounts
+- [x] Calculating price with discounts
 
