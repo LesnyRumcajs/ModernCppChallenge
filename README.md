@@ -97,3 +97,5 @@ Required libraries:
 - [x] Observed vector container (Observer)
 - [x] Calculating price with discounts
 
+**Serialization**
+- [x] XML serialization / deserialization
