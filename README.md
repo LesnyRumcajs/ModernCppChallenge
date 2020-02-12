@@ -1,8 +1,8 @@
 # Modern C++ Challenge
+[![works badge](https://cdn.jsdelivr.net/gh/nikku/works-on-my-machine@v0.2.0/badge.svg)](https://github.com/nikku/works-on-my-machine)
 [![CircleCI](https://circleci.com/gh/LesnyRumcajs/ModernCppChallenge.svg?style=svg)](https://circleci.com/gh/LesnyRumcajs/ModernCppChallenge)
 [![codecov](https://codecov.io/gh/LesnyRumcajs/ModernCppChallenge/branch/master/graph/badge.svg)](https://codecov.io/gh/LesnyRumcajs/ModernCppChallenge)
 [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/LesnyRumcajs/ModernCppChallenge.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/LesnyRumcajs/ModernCppChallenge/context:cpp)
-[![works badge](https://cdn.jsdelivr.net/gh/nikku/works-on-my-machine@v0.2.0/badge.svg)](https://github.com/nikku/works-on-my-machine)
 
 My solutions to the problems from The Modern C++ Challenge by Marius Bancila
 
