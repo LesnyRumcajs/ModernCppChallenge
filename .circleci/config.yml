@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: installing dependencies
-          command: 'sudo dnf install -y g++ cmake boost-devel tbb-devel git make'
+          command: 'sudo dnf install -y g++ cmake boost-devel tbb-devel git make pugixml-devel'
       - run:
           name: creating build files
           command: 'cmake -H. -Bbuild'
