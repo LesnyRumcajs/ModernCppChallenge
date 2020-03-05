@@ -25,7 +25,7 @@ jobs:
       - checkout
       - run:
           name: installing dependencies
-          command: 'sudo dnf install -y g++ cmake boost-devel tbb-devel git make'
+          command: 'sudo dnf install -y g++ cmake boost-devel tbb-devel git make pugixml-devel'
       - run:
           name: installing master lcov
           command: 'git clone https://github.com/linux-test-project/lcov && cd lcov && make install && cd -'

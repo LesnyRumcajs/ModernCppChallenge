@@ -100,4 +100,5 @@ Required libraries:
 - [x] Calculating price with discounts
 
 **Serialization**
-- [x] XML serialization / deserialization
+- [x] XML serialization / deserialization (`Boost`)
+- [x] Extracting data from XML with *XPath* (`pugixml`)

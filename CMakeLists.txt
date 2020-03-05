@@ -55,6 +55,11 @@ if (Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
 endif ()
 
+find_package(pugixml REQUIRED)
+if (pugixml_FOUND)
+    include_directories(${pugixml_INCLUDE_DIRS})
+endif()
+
 if ($ENV{COVERAGE})
     message("Setting up for coverage")
     enable_testing()
@@ -174,6 +179,6 @@ add_executable(ModernCppChallengeDesignPatterns src/design_patterns/password_val
 target_link_libraries(ModernCppChallengeDesignPatterns gtest_main gmock_main)
 add_test(NAME DesignPatternsTest COMMAND ModernCppChallengeDesignPatterns)
 
-add_executable(ModernCppChallengeSerialization src/serialization/xml_serde.h tst/serialization/xml_serde_test.cpp)
-target_link_libraries(ModernCppChallengeSerialization gtest_main gmock_main boost_serialization)
+add_executable(ModernCppChallengeSerialization src/serialization/xml_serde.h tst/serialization/xml_serde_test.cpp src/serialization/xml_xpath.h tst/serialization/xml_xpath_test.cpp)
+target_link_libraries(ModernCppChallengeSerialization gtest_main gmock_main boost_serialization pugixml)
 add_test(NAME SerializationTest COMMAND ModernCppChallengeSerialization)
